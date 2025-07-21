@@ -122,11 +122,42 @@
         .faq-answer { max-height: 0; overflow: hidden; transition: all 0.5s ease-in-out; }
         .faq-answer p { padding: 0 25px 20px; margin: 0; color: #5f6368; }
 
-        .image-content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; } .image-content-grid .grid-image img { border-radius: var(--border-radius); box-shadow: var(--box-shadow); } .pricing-box { max-width: 550px; margin: 0 auto; background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)); color: var(--light-text-color); padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(10, 104, 255, 0.3); } .pricing-box h3 { font-size: 1.8em; margin-bottom: 15px; } .pricing-box .price { font-size: 3.5em; font-weight: 800; margin-bottom: 10px; letter-spacing: -2px; } .pricing-box .note { font-style: italic; opacity: 0.9; margin-bottom: 25px; } .final-quote { text-align: center; font-size: 1.3em; font-style: italic; color: var(--secondary-color); max-width: 800px; margin: 30px auto 0 auto; padding: 25px; background: var(--light-bg-color); border-radius: var(--border-radius); border-top: 4px solid var(--primary-color); } footer { background-color: var(--secondary-color); color: #bdc1c6; padding: 40px 0 30px; text-align: center; } .footer-logo { display: flex; justify-content: center; align-items: center; text-decoration: none; gap: 12px; margin-bottom: 15px; } .footer-logo img { height: 45px; } .footer-logo span { font-size: 1.4em; font-weight: 700; color: var(--light-text-color); } .footer-contact h3 { font-size: 1.4em; margin-bottom: 15px; color: #fff; } .footer-contact p { margin-bottom: 8px; font-size: 1.05em; } .footer-contact a { color: #fff; text-decoration: none; transition: color 0.3s; } .footer-contact a:hover { color: var(--primary-color); } .copyright { margin-top: 25px; padding-top: 15px; border-top: 1px solid #5f6368; font-size: 0.9em; }
-        .floating-cta { display: none; position: fixed; bottom: 20px; right: 20px; z-index: 998; }
+        .image-content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; } .image-content-grid .grid-image img { border-radius: var(--border-radius); box-shadow: var(--box-shadow); } .pricing-box { max-width: 550px; margin: 0 auto; background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)); color: var(--light-text-color); padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(10, 104, 255, 0.3); } .pricing-box h3 { font-size: 1.8em; margin-bottom: 15px; } .pricing-box .price { font-size: 3.5em; font-weight: 800; margin-bottom: 10px; letter-spacing: -2px; } .pricing-box .note { font-style: italic; opacity: 0.9; margin-bottom: 25px; } .final-quote { text-align: center; font-size: 1.3em; font-style: italic; color: var(--secondary-color); max-width: 800px; margin: 30px auto 0 auto; padding: 25px; background: var(--light-bg-color); border-radius: var(--border-radius); border-top: 4px solid var(--primary-color); } 
         
+        /* === NEW CSS FOR FOOTER === */
+        footer { background-color: var(--secondary-color); color: #bdc1c6; padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1.5fr 1fr; gap: 40px; text-align: left; }
+        .footer-col h4 { font-size: 1.1em; color: #fff; margin-bottom: 20px; margin-top: 0; text-transform: uppercase; letter-spacing: 0.5px; }
+        .footer-col p, .footer-col a { font-size: 0.95em; color: #bdc1c6; text-decoration: none; line-height: 1.7; }
+        .footer-col a { transition: color 0.3s; }
+        .footer-col a:hover { color: var(--primary-color); }
+        .footer-logo img { max-width: 220px; margin-bottom: 15px; }
+        .social-icons { display: flex; gap: 15px; margin-top: 15px; }
+        .social-icons a { display: inline-flex; width: 42px; height: 42px; background-color: rgba(255, 255, 255, 0.1); border-radius: 50%; align-items: center; justify-content: center; transition: background-color 0.3s; }
+        .social-icons a:hover { background-color: var(--primary-color); }
+        .social-icons svg { width: 22px; height: 22px; fill: #fff; }
+        .copyright { margin-top: 50px; padding-top: 25px; border-top: 1px solid #3d4a5c; font-size: 0.9em; text-align: center; }
+
+        @media (max-width: 992px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid .footer-col:first-child { grid-column: 1 / -1; } /* Make first col full width */
+        }
+        @media (max-width: 768px) { 
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; text-align: center;}
+            .footer-logo img { margin-left: auto; margin-right: auto; }
+            .social-icons { justify-content: center; }
+        }
+
+        /* === NEW CSS FOR FLOATING WIDGETS === */
+        .floating-widget-container { position: fixed; bottom: 25px; right: 25px; z-index: 998; display: flex; flex-direction: column; gap: 12px; }
+        .floating-btn { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; background-color: var(--primary-color); box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s, opacity 0.3s, visibility 0.3s; text-decoration: none; border: 2px solid #fff; }
+        .floating-btn:hover { transform: scale(1.1); }
+        .zalo-btn { background-color: #fff; padding: 8px; }
+        .zalo-btn img { width: 100%; height: auto; }
+        .back-to-top-btn { background-color: var(--accent-color); opacity: 0; visibility: hidden; transform: translateY(10px); }
+        .back-to-top-btn.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+
         @media (max-width: 992px) { .image-content-grid { grid-template-columns: 1fr; } .image-content-grid.image-right .grid-image { order: -1; } }
-        @media (max-width: 859px) { .floating-cta { display: block; } }
         
         @media (max-width: 768px) { 
             section { padding: 50px 0; }
@@ -152,9 +183,11 @@
 </head>
 <body>
     <nav class="navbar"> <div class="nav-container"> <a href="#" class="nav-logo"> <img src="https://gpems.net/logo-icon.png" alt="GPEMS Logo"> <span>EMS SOLUTION</span> </a> <ul class="nav-links"> <li><a href="#objectives-benefits">Lợi ích</a></li> <li><a href="#tools">Công cụ</a></li> <li><a href="#curriculum">Nội dung</a></li> <li><a href="#instructors">Giảng viên</a></li> <li><a href="#faq">FAQ</a></li> </ul> <button class="btn nav-cta btn-register">Đăng ký ngay</button> </div> </nav>
-    <button class="btn floating-cta btn-register">Đăng Ký</button>
+    
+    <!-- This button is replaced by the new floating widget container
+    <button class="btn floating-cta btn-register">Đăng Ký</button> -->
 
-    <header class="hero"> <div class="container fade-in"> <span class="course-tag">🎓 KHÓA HỌC ĐỘC QUYỀN</span> <h1>Hệ Thống Quản Lý Tự Động với AI & Nocode</h1> <p>Biến mọi ý tưởng quản lý thành hệ thống thực thi tự động, dùng được ngay – chỉ sau 10 buổi học ứng dụng AI và No-code.</p> <button class="btn btn-register">Tham gia ngay</button> </div> </header>
+    <header class="hero" id="hero"> <div class="container fade-in"> <span class="course-tag">🎓 KHÓA HỌC ĐỘC QUYỀN</span> <h1>Hệ Thống Quản Lý Tự Động với AI & Nocode</h1> <p>Biến mọi ý tưởng quản lý thành hệ thống thực thi tự động, dùng được ngay – chỉ sau 10 buổi học ứng dụng AI và No-code.</p> <button class="btn btn-register">Tham gia ngay</button> </div> </header>
 
     <main>
         <section id="audience"> <div class="container"> <h2 class="section-title fade-in">✅ Khóa học này dành cho ai?</h2> <p class="section-subtitle fade-in">Nếu bạn thuộc một trong những nhóm dưới đây, khóa học này được thiết kế dành riêng cho bạn.</p> <div class="audience-grid"> <div class="benefit-card fade-in"> <div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h6M9 11.25h6m-6 4.5h6M6.75 21v-2.25a2.25 2.25 0 0 1 2.25-2.25h6a2.25 2.25 0 0 1 2.25 2.25V21" /></svg></div> <h3>Chủ doanh nghiệp & Startup</h3><p>CEO, Founder muốn tự tay xây dựng hệ thống quản trị hiện đại, linh hoạt theo sự phát triển của công ty.</p> </div> <div class="benefit-card fade-in" style="transition-delay: 0.1s;"> <div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m-7.5-2.962A3.75 3.75 0 0 1 15 12a3.75 3.75 0 0 1 3.75 3.75m-16.5 0a3.75 3.75 0 0 1 3.75-3.75 3.75 3.75 0 0 1 3.75 3.75 3.75 3.75 0 0 1-3.75 3.75 3.75 3.75 0 0 1-3.75-3.75M9 12a3.75 3.75 0 0 1 3.75-3.75A3.75 3.75 0 0 1 16.5 12v2.25" /></svg></div> <h3>Trưởng bộ phận & Quản lý</h3><p>Trưởng phòng Marketing, Kinh doanh, Vận hành, Nhân sự muốn tối ưu hóa quy trình làm việc của đội nhóm.</p> </div> <div class="benefit-card fade-in" style="transition-delay: 0.2s;"> <div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" /></svg></div> <h3>Người muốn tự động hóa</h3><p>Những ai đang mệt mỏi với quản lý thủ công bằng Excel, Zalo và muốn ứng dụng công nghệ mà không giỏi lập trình.</p> </div> </div> </div> </section>
@@ -167,7 +200,7 @@
                     <div class="tool-card"><img src="https://logos-world.net/wp-content/uploads/2023/12/Google-Workspace-Emblem.png" alt="Google Workspace Logo" loading="lazy"><p>Google Workspace</p></div>
                     <div class="tool-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Google_Sheets_logo_%282014-2020%29.svg/512px-Google_Sheets_logo_%282014-2020%29.svg.png" alt="Google Sheets Logo" loading="lazy"><p>Google Sheets</p></div>
                     <div class="tool-card"><img src="https://cdn-1.webcatalog.io/catalog/appsheet/appsheet-icon-filled-256.png" alt="Google AppSheet Logo" loading="lazy"><p>AppSheet</p></div>
-                    <div class="tool-card"><img src="https://images.seeklogo.com/logo-png/61/2/looker-studio-logo-png_seeklogo-617989.png" alt="Looker Studio Logo" loading="lazy"><p>Looker Studio</p></div>
+                    <div class="tool-card"><img src="https://www.gstatic.com/analytics-suite/header/suite/v2/ic_looker_studio.svg" alt="Looker Studio Logo" loading="lazy"><p>Looker Studio</p></div>
                     <div class="tool-card"><img src="https://sepay.vn/assets/img/payment-gateway/icon/smax.svg" alt="Smax Logo" loading="lazy"><p>Smax</p></div>
                     <div class="tool-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/N8n-logo-new.svg/2560px-N8n-logo-new.svg.png" alt="n8n Logo" loading="lazy"><p>n8n.io</p></div>
                 </div>
@@ -262,9 +295,61 @@
         <section id="pricing"> <div class="container fade-in"> <div class="pricing-box"> <h3>💸 Đầu tư một lần, sở hữu trọn đời</h3> <div class="price">4.500.000 VNĐ</div> <p class="note">(Giá đã bao gồm toàn bộ tài liệu, app mẫu, hỗ trợ & bảo hành)</p> <button class="btn btn-register">Đăng ký và nhận ưu đãi</button> </div> </div> </section>
         <section id="final-cta" style="padding-top: 0;"> <div class="container"> <div class="final-quote fade-in"> ✨ Học xong bạn không chỉ “biết làm”, mà còn có trong tay một hệ thống thật để đưa vào vận hành ngay trong doanh nghiệp của mình. </div> </div> </section>
     </main>
-    <footer id="footer-contact"> <div class="container"> <a href="#" class="footer-logo"> <img src="https://gpems.net/logo-icon.png" alt="GPEMS Logo"> <span>EMS SOLUTION</span> </a> <div class="footer-contact"> <h3>Liên hệ tư vấn và đăng ký</h3> <p>Hotline: <a href="tel:0903375265">0903.375.265 (Mr. Hiền)</a></p> <p>Email: <a href="mailto:admin@gpems.ne">admin@gpems.ne</a></p> </div> <div class="copyright"> <p>© 2025 EMS SOLUTION. All Rights Reserved.</p> </div> </div> </footer>
+    
+    <!-- === NEW FOOTER STARTS HERE === -->
+    <footer id="footer-contact"> 
+        <div class="container"> 
+            <div class="footer-grid"> 
+                <div class="footer-col"> 
+                    <a href="#hero" class="footer-logo"> 
+                        <img src="https://gpems.net/metaImage.png" alt="Innoflex Logo"> 
+                    </a> 
+                    <h4>CÔNG TY TNHH GIẢI PHÁP SỐ EMS</h4> 
+                    <p>Cung cấp giải pháp quản trị vận hành linh hoạt và toàn diện cho doanh nghiệp bán lẻ đa kênh.</p> 
+                </div> 
+                <div class="footer-col"> 
+                    <h4>Thông tin Công ty</h4> 
+                    <p> <strong>MST:</strong> 0316870151<br> 
+                        <strong>Địa chỉ:</strong> 93/4 Liên khu 5-6, P. Bình Hưng Hòa B, Q. Bình Tân, TP.HCM<br> 
+                        <strong>Hotline:</strong> <a href="tel:0903375265">0903.375.265 (Mr. Hiền)</a><br> 
+                        <strong>Email:</strong> <a href="mailto:nguyentanhien87@gmail.com">nguyentanhien87@gmail.com</a>
+                    </p> 
+                </div> 
+                <div class="footer-col"> 
+                    <h4>Kết nối với chúng tôi</h4> 
+                    <div class="social-icons"> 
+                        <a href="https://www.facebook.com/gpems.net" target="_blank" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.99 3.66 9.13 8.44 9.88V15.5H8.08v-3.5h2.36V9.62c0-2.34 1.4-3.62 3.52-3.62 1.02 0 2.12.18 2.12.18v3.02h-1.54c-1.14 0-1.5.7-1.5 1.4v1.74h3.34l-.52 3.5h-2.82v6.38C18.34 21.13 22 16.99 22 12c0-5.52-4.48-10-10-10z"/></svg></a> 
+                        <a href="https://www.youtube.com/@emssolution" target="_blank" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.52 11.23l-5.78 3.26c-.3.17-.68-.04-.68-.38V8.89c0-.34.38-.55.68-.38l5.78 3.26c.3.17.3.64 0 .81z"/></svg></a> 
+                    </div> 
+                </div> 
+            </div> 
+            <div class="copyright"> 
+                <p>© 2025 EMS SOLUTION. All Rights Reserved.</p> 
+            </div> 
+        </div> 
+    </footer>
+    <!-- === NEW FOOTER ENDS HERE === -->
+
     <div class="modal-overlay" id="registrationModal"> <div class="modal-content"> <button class="modal-close" id="registrationModalClose">×</button> <div id="registration-form-container"> <h3>Thông tin đăng ký</h3> <form id="registrationForm"> <div class="form-group"> <label for="fullName">Họ và tên (để in chứng chỉ)</label> <input type="text" id="fullName" name="fullName" required> </div> <div class="form-group"> <label for="email">Email (để kích hoạt khóa học)</label> <input type="email" id="email" name="email" required> </div> <div class="form-group"> <label for="phone">Số điện thoại (Zalo hỗ trợ)</label> <input type="tel" id="phone" name="phone" required> </div> <div class="form-group"> <label for="discountCode">Mã giảm giá (nếu có)</label> <input type="text" id="discountCode" name="discountCode" placeholder="Ví dụ: EMS10"> </div> <p id="form-error"></p> <button type="submit" class="btn" style="width: 100%;">Xác nhận và thanh toán</button> </form> </div> <div id="qr-code-view" style="display: none;"> <h3>Quét mã để thanh toán</h3> <div id="loader" class="loader"></div> <img id="qrImage" src="" alt="VietQR Code" style="display: none;"> <div class="payment-details"> <p>Ngân hàng: <strong>Kien Long Bank (KLB)</strong></p> <p>Chủ tài khoản: <strong>NGUYEN TAN HIEN</strong></p> <p>Số tiền cần thanh toán:</p> <p class="amount" id="paymentAmount"></p> <p>Nội dung chuyển khoản:</p> <p class="memo" id="paymentMemo"></p> </div> </div> </div> </div>
     <div class="modal-overlay" id="videoModal"> <div class="modal-content"> <button class="modal-close" id="videoModalClose">×</button> <div class="video-container"> <iframe id="videoPlayer" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> </div> </div> </div>
+
+    <!-- === NEW FLOATING WIDGETS START HERE === -->
+    <div class="floating-widget-container">
+        <a href="tel:0903375265" class="floating-btn phone-btn" title="Gọi Hotline">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.362-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+            </svg>
+        </a>
+        <a href="https://zalo.me/giaiphapsoems" target="_blank" class="floating-btn zalo-btn" title="Chat Zalo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Icon_of_Zalo.svg/768px-Icon_of_Zalo.svg.png" alt="Zalo Icon">
+        </a>
+        <a href="#hero" id="back-to-top-btn" class="floating-btn back-to-top-btn" title="Về đầu trang">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+            </svg>
+        </a>
+    </div>
+    <!-- === NEW FLOATING WIDGETS END HERE === -->
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -356,6 +441,18 @@
                 });
             }, observerOptions);
             sections.forEach((section) => observer.observe(section));
+
+            // === NEW SCRIPT FOR BACK TO TOP BUTTON ===
+            const backToTopBtn = document.getElementById('back-to-top-btn');
+            if (backToTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        backToTopBtn.classList.add('visible');
+                    } else {
+                        backToTopBtn.classList.remove('visible');
+                    }
+                });
+            }
         });
     </script>
 </body>
