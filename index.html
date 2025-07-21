@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -6,33 +7,32 @@
     <title>Khóa học: Xây Dựng Hệ Thống Quản Trị Doanh Nghiệp Tự Động – Không Cần Code</title>
     <style>
         /* --- Cài đặt chung & Font --- */
-        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap');
 
         :root {
-            --primary-color: #1a73e8; /* Google Blue */
-            --secondary-color: #202124; /* Dark Gray */
-            --accent-color: #ff6d00; /* Vibrant Orange */
+            --primary-color: #0a68ff;
+            --secondary-color: #0d1b2a;
+            --accent-color: #ff6d00;
             --light-bg-color: #f8f9fa;
-            --text-color: #3c4043;
+            --text-color: #344054;
             --light-text-color: #fff;
-            --border-color: #dadce0;
-            --border-radius: 12px;
-            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --transition-speed: 0.4s;
+            --border-color: #e4e7ec;
+            --border-radius: 16px;
+            --box-shadow: 0 8px 24px rgba(13, 27, 42, 0.08);
         }
 
         html { scroll-behavior: smooth; }
-        body { font-family: 'Be Vietnam Pro', sans-serif; line-height: 1.7; color: var(--text-color); background-color: #fff; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Be Vietnam Pro', sans-serif; line-height: 1.7; color: var(--text-color); background-color: #fff; -webkit-font-smoothing: antialiased; position: relative; }
+        body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; height: 50vh; background: radial-gradient(ellipse at top, rgba(10, 104, 255, 0.05), transparent 70%); z-index: -1; }
         img { max-width: 100%; height: auto; display: block; }
         .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
         section { padding: 80px 0; overflow: hidden; }
-        .section-title { text-align: center; font-size: 2.8em; color: var(--secondary-color); margin-bottom: 20px; font-weight: 700; }
-        .section-subtitle { text-align: center; max-width: 750px; margin: 0 auto 60px auto; color: #5f6368; font-size: 1.15em; }
+        .section-title { text-align: center; font-size: 2.8em; color: var(--secondary-color); margin-bottom: 20px; font-weight: 800; line-height: 1.2; }
+        .section-subtitle { text-align: center; max-width: 750px; margin: 0 auto 60px auto; color: #556276; font-size: 1.15em; }
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        /* Navigation Bar */
-        .navbar { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 15px 0; position: sticky; top: 0; z-index: 999; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .navbar { background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 15px 0; position: sticky; top: 0; z-index: 999; border-bottom: 1px solid var(--border-color); }
         .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .nav-logo { display: flex; align-items: center; text-decoration: none; gap: 12px; }
         .nav-logo img { height: 45px; }
@@ -40,282 +40,271 @@
         @media (min-width: 480px) { .nav-logo span { display: block; } }
         .nav-links { list-style: none; display: none; gap: 30px; }
         @media (min-width: 860px) { .nav-links { display: flex; } }
-        .nav-links a { text-decoration: none; color: var(--secondary-color); font-weight: 500; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--primary-color); }
+        .nav-links a { text-decoration: none; color: var(--secondary-color); font-weight: 500; transition: color 0.3s; position: relative; padding: 5px 0; }
+        .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--primary-color); transition: width 0.3s; }
+        .nav-links a:hover::after, .nav-links a.active-link::after { width: 100%; }
+        .nav-links a.active-link { color: var(--primary-color); font-weight: 700; }
         .nav-cta { display: none; }
         @media (min-width: 860px) { .nav-cta { display: inline-block; } }
         
-        /* Nút CTA */
-        .btn, .btn-register { display: inline-block; background-color: var(--accent-color); color: var(--light-text-color); padding: 14px 32px; font-size: 1em; font-weight: 700; text-decoration: none; border-radius: 50px; transition: all 0.3s; text-transform: uppercase; box-shadow: 0 4px 15px rgba(255, 109, 0, 0.3); border: none; cursor: pointer; }
+        .btn, .btn-register { position: relative; overflow: hidden; display: inline-block; background-color: var(--accent-color); color: var(--light-text-color); padding: 14px 32px; font-size: 1em; font-weight: 700; text-decoration: none; border-radius: 50px; transition: all 0.3s; text-transform: uppercase; box-shadow: 0 4px 15px rgba(255, 109, 0, 0.3); border: none; cursor: pointer; z-index: 1; }
         .btn:hover, .btn-register:hover { background-color: #e65100; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255, 109, 0, 0.4); }
+        .btn::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; background-color: rgba(255,255,255,0.2); border-radius: 50%; transform: translate(-50%, -50%); transition: width 0.4s, height 0.4s; z-index: -1; }
+        .btn:hover::before { width: 200px; height: 200px; }
 
-        /* Hero Section */
-        .hero { background: linear-gradient(rgba(32, 33, 36, 0.8), rgba(32, 33, 36, 0.8)), url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover; color: var(--light-text-color); padding: 120px 0; text-align: center; }
-        .hero h1 { font-size: 3.2em; font-weight: 900; margin-bottom: 20px; line-height: 1.2; }
+        .hero { background: linear-gradient(rgba(13, 27, 42, 0.8), rgba(13, 27, 42, 0.8)), url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover; color: var(--light-text-color); padding: 120px 0; text-align: center; }
+        .hero h1 { font-size: 3.5em; font-weight: 800; margin-bottom: 20px; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
         .hero p { font-size: 1.3em; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto; font-weight: 400; opacity: 0.9; }
         .hero .course-tag { background: var(--primary-color); color: white; padding: 8px 20px; border-radius: 20px; font-weight: 500; display: inline-block; margin-bottom: 25px; }
         
-        #audience { background-color: var(--light-bg-color); }
+        #audience { background-color: #fff; }
         .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .audience-card { background: #fff; padding: 40px 30px; border-radius: var(--border-radius); box-shadow: var(--box-shadow); text-align: center; border: 1px solid var(--border-color); transition: transform 0.3s, box-shadow 0.3s; }
-        .audience-card:hover { transform: translateY(-8px); box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
-        .audience-card .icon { font-size: 3.5em; line-height: 1; margin-bottom: 20px; display: block; }
-        .audience-card h3 { font-size: 1.3em; color: var(--secondary-color); margin-bottom: 10px; }
+        .benefit-card { background: #fff; padding: 40px 30px; border-radius: var(--border-radius); box-shadow: var(--box-shadow); text-align: center; border: 1px solid var(--border-color); transition: transform 0.3s, box-shadow 0.3s; }
+        .benefit-card:hover { transform: translateY(-8px); box-shadow: 0 12px 32px rgba(13, 27, 42, 0.12); }
+        .benefit-card .icon-wrapper { width: 64px; height: 64px; margin: 0 auto 25px; background: linear-gradient(145deg, var(--primary-color), #4e9aff); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(10, 104, 255, 0.3); }
+        .benefit-card .icon-wrapper svg { width: 32px; height: 32px; }
+        .benefit-card h3 { font-size: 1.3em; color: var(--secondary-color); margin-bottom: 10px; }
 
-        .image-content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .image-content-grid .grid-image img { border-radius: var(--border-radius); box-shadow: var(--box-shadow); }
-        .feature-list h3 { font-size: 1.8em; color: var(--secondary-color); margin-bottom: 25px; border-left: 5px solid var(--primary-color); padding-left: 15px; }
-        .feature-list ul { list-style: none; padding-left:0; }
-        .feature-list li { font-size: 1.05em; margin-bottom: 15px; display: flex; align-items: flex-start; }
-        .feature-list li::before { content: '✓'; color: var(--primary-color); font-weight: bold; margin-right: 15px; font-size: 1.4em; line-height: 1.2; }
-        
         #curriculum { background-color: var(--light-bg-color); }
-        .curriculum-timeline { position: relative; max-width: 800px; margin: 0 auto; }
-        .curriculum-timeline::after { content: ''; position: absolute; width: 3px; background-color: var(--border-color); top: 0; bottom: 0; left: 50%; margin-left: -1.5px; }
-        .session-container { padding: 10px 40px; position: relative; width: 50%; }
-        .session-container::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: white; border: 4px solid var(--primary-color); top: 25px; border-radius: 50%; z-index: 1; }
-        .session-container.left { left: 0; } .session-container.right { left: 50%; } .session-container.right::after { left: -10px; }
-        .session-content { padding: 25px; background-color: white; position: relative; border-radius: var(--border-radius); box-shadow: var(--box-shadow); transition: transform 0.3s; }
-        .session-content:hover { transform: scale(1.03); }
-        .session-content h4 { color: var(--primary-color); font-size: 1.2em; margin-bottom: 10px; }
-        .session-content p { font-size: 0.95em; color: #5f6368; }
+        .learning-philosophy { display: flex; gap: 20px; background-color: #e8f0fe; padding: 25px; border-radius: var(--border-radius); border-left: 5px solid var(--primary-color); margin-bottom: 40px; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .learning-philosophy svg { flex-shrink: 0; width: 24px; height: 24px; color: var(--primary-color); margin-top: 5px; }
+        .learning-philosophy h4 { margin-top: 0; margin-bottom: 5px; color: var(--secondary-color); }
+        .learning-philosophy p { margin: 0; }
+        .curriculum-accordion { max-width: 900px; margin: 0 auto; }
+        .chapter-item { background-color: #fff; border: 1px solid var(--border-color); border-radius: var(--border-radius); margin-bottom: 15px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .chapter-header { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 20px; background-color: #fff; border: none; cursor: pointer; text-align: left; }
+        .chapter-header:hover { background-color: #f9f9f9; }
+        .chapter-title { display: flex; align-items: center; gap: 15px; }
+        .chapter-title .icon { font-size: 1.5em; color: var(--primary-color); transform: rotate(0deg); transition: transform 0.4s; }
+        .chapter-header.active .chapter-title .icon { transform: rotate(135deg); }
+        .chapter-title h4 { font-size: 1.2em; font-weight: 700; margin: 0; color: var(--secondary-color); }
+        .chapter-summary { text-align: right; color: #5f6368; font-weight: 500; }
+        .lesson-list { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; background-color: #fdfdfd; }
+        .lesson-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 25px; border-top: 1px solid var(--border-color); }
+        .lesson-item:first-child { border-top: 1px solid #ccc; }
+        .lesson-title { display: flex; align-items: center; gap: 15px; }
+        .lesson-title .icon { font-size: 1.2em; color: #5f6368; }
+        .lesson-title p { margin: 0; font-size: 1em; }
+        .lesson-meta { display: flex; align-items: center; gap: 15px; }
+        .lesson-duration { color: #5f6368; font-size: 0.9em; }
+        .btn-preview { background-color: var(--primary-color); color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.85em; font-weight: 500; transition: background-color 0.3s; }
+        .btn-preview:hover { background-color: #0854d1; }
         
+        #tools { background-color: #fff; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 30px 40px; align-items: center; max-width: 900px; margin: 0 auto; }
+        .tool-card { text-align: center; padding: 20px; background-color: #fff; border-radius: var(--border-radius); transition: all 0.3s; border: 1px solid transparent; }
+        .tool-card:hover { transform: translateY(-5px); box-shadow: var(--box-shadow); border-color: var(--border-color); }
+        .tool-card img { height: 55px; margin: 0 auto; object-fit: contain; }
+        .tool-card p { margin-top: 15px; font-weight: 500; color: #5f6368; font-size: 0.9em; }
+
+        #instructors, #pricing { background-color: var(--light-bg-color); }
         .instructors-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
-        .instructor-card { background: var(--light-bg-color); padding: 30px; border-radius: var(--border-radius); text-align: center; width: 350px; box-shadow: var(--box-shadow); }
+        .instructor-card { background: #fff; padding: 30px; border-radius: var(--border-radius); text-align: center; width: 350px; box-shadow: var(--box-shadow); border: 1px solid var(--border-color); }
         .instructor-card img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 6px solid white; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
         .instructor-card h3 { font-size: 1.5em; color: var(--secondary-color); margin-bottom: 5px; }
         .instructor-card .title { color: var(--primary-color); font-weight: 500; margin-bottom: 15px; }
         
-        #tools { background-color: #fff; }
-        .tools-grid { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 30px 40px; }
-        .tool-item { text-align: center; }
-        .tool-item img { height: 55px; filter: grayscale(1); opacity: 0.6; transition: all 0.3s; }
-        .tool-item:hover img { filter: grayscale(0); opacity: 1; transform: scale(1.1); }
-        .tool-item p { margin-top: 10px; font-weight: 500; color: #5f6368; font-size: 0.9em; }
-
-        #faq { background-color: var(--light-bg-color); }
+        #faq { background-color: #fff; }
         .faq-accordion { max-width: 800px; margin: 0 auto; }
         .faq-item { background: #fff; margin-bottom: 15px; border-radius: var(--border-radius); box-shadow: var(--box-shadow); border: 1px solid var(--border-color); overflow: hidden; }
-        .faq-question { width: 100%; background: #fff; border: none; text-align: left; padding: 20px; font-size: 1.15em; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--secondary-color); }
-        .faq-question::after { content: '+'; font-size: 1.8em; font-weight: 400; color: var(--primary-color); transition: transform 0.3s; }
-        .faq-question.active::after { transform: rotate(45deg); }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; }
-        .faq-answer p { padding: 0 20px 20px 20px; margin: 0; color: #5f6368; }
-        
-        #pricing { background-color: #fff; }
-        .pricing-box { max-width: 600px; margin: 0 auto; background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)); color: var(--light-text-color); padding: 50px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(26, 115, 232, 0.4); }
-        .pricing-box h3 { font-size: 2em; margin-bottom: 20px; }
-        .pricing-box .price { font-size: 4em; font-weight: 900; margin-bottom: 10px; letter-spacing: -2px; }
-        .pricing-box .note { font-style: italic; opacity: 0.9; margin-bottom: 30px; }
-        
-        #final-cta { background-color: #fff; }
-        .final-quote { text-align: center; font-size: 1.4em; font-style: italic; color: var(--secondary-color); max-width: 800px; margin: 40px auto 0 auto; padding: 30px; background: var(--light-bg-color); border-radius: var(--border-radius); border-top: 5px solid var(--primary-color); }
-        
-        footer { background-color: var(--secondary-color); color: #bdc1c6; padding: 50px 0; text-align: center; }
-        .footer-logo { display: flex; justify-content: center; align-items: center; text-decoration: none; gap: 12px; margin-bottom: 20px; }
-        .footer-logo img { height: 50px; }
-        .footer-logo span { font-size: 1.5em; font-weight: 700; color: var(--light-text-color); }
-        .footer-contact h3 { font-size: 1.5em; margin-bottom: 20px; color: #fff; }
-        .footer-contact p { margin-bottom: 10px; font-size: 1.1em; }
-        .footer-contact a { color: #fff; text-decoration: none; transition: color 0.3s; }
-        .footer-contact a:hover { color: var(--primary-color); }
-        .copyright { margin-top: 30px; padding-top: 20px; border-top: 1px solid #5f6368; font-size: 0.9em; }
-        
+        .faq-question { width: 100%; background: #fff; border: none; text-align: left; padding: 20px 25px; font-size: 1.15em; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--secondary-color); }
+        .faq-question .icon { font-size: 1.5em; font-weight: 400; color: var(--primary-color); transition: transform 0.4s; transform-origin: center; }
+        .faq-question.active .icon { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: all 0.5s ease-in-out; }
+        .faq-answer p { padding: 0 25px 25px; margin: 0; color: #5f6368; }
+
+        .image-content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; } .image-content-grid .grid-image img { border-radius: var(--border-radius); box-shadow: var(--box-shadow); } .pricing-box { max-width: 600px; margin: 0 auto; background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)); color: var(--light-text-color); padding: 50px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(10, 104, 255, 0.3); } .pricing-box h3 { font-size: 2em; margin-bottom: 20px; } .pricing-box .price { font-size: 4em; font-weight: 800; margin-bottom: 10px; letter-spacing: -2px; } .pricing-box .note { font-style: italic; opacity: 0.9; margin-bottom: 30px; } .final-quote { text-align: center; font-size: 1.4em; font-style: italic; color: var(--secondary-color); max-width: 800px; margin: 40px auto 0 auto; padding: 30px; background: var(--light-bg-color); border-radius: var(--border-radius); border-top: 5px solid var(--primary-color); } footer { background-color: var(--secondary-color); color: #bdc1c6; padding: 50px 0; text-align: center; } .footer-logo { display: flex; justify-content: center; align-items: center; text-decoration: none; gap: 12px; margin-bottom: 20px; } .footer-logo img { height: 50px; } .footer-logo span { font-size: 1.5em; font-weight: 700; color: var(--light-text-color); } .footer-contact h3 { font-size: 1.5em; margin-bottom: 20px; color: #fff; } .footer-contact p { margin-bottom: 10px; font-size: 1.1em; } .footer-contact a { color: #fff; text-decoration: none; transition: color 0.3s; } .footer-contact a:hover { color: var(--primary-color); } .copyright { margin-top: 30px; padding-top: 20px; border-top: 1px solid #5f6368; font-size: 0.9em; }
         .floating-cta { display: none; position: fixed; bottom: 20px; right: 20px; z-index: 998; }
         @media (max-width: 859px) { .floating-cta { display: block; } }
-        
         @media (max-width: 992px) { .image-content-grid { grid-template-columns: 1fr; } .image-content-grid.image-right .grid-image { order: -1; } }
-        @media (max-width: 768px) { .section-title { font-size: 2.2em; } .hero h1 { font-size: 2.5em; } .hero p { font-size: 1.1em; } .curriculum-timeline::after { left: 20px; } .session-container { width: 100%; padding-left: 50px; padding-right: 15px; } .session-container.left, .session-container.right { left: 0; } .session-container::after { left: 11px; } .pricing-box .price { font-size: 3em; } }
-        
-        /* Modal Styles */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: flex; align-items: center; justify-content: center; z-index: 1001; opacity: 0; visibility: hidden; transition: opacity 0.4s, visibility 0.4s; }
-        .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-content { background: #fff; padding: 40px; border-radius: var(--border-radius); width: 90%; max-width: 500px; position: relative; transform: translateY(-20px) scale(0.95); transition: transform 0.4s; }
-        .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
-        .modal-close { position: absolute; top: 15px; right: 15px; font-size: 2em; font-weight: bold; color: #aaa; cursor: pointer; line-height: 1; border: none; background: none; } .modal-close:hover { color: #333; }
-        .modal-content h3 { text-align: center; font-size: 1.8em; color: var(--secondary-color); margin-bottom: 25px; }
-        .form-group { margin-bottom: 20px; } .form-group label { display: block; font-weight: 500; margin-bottom: 8px; color: #5f6368; }
-        .form-group input { width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-color); font-size: 1em; font-family: 'Be Vietnam Pro', sans-serif; transition: border-color 0.3s, box-shadow 0.3s; }
-        .form-group input:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2); }
-        #form-error { color: #d93025; text-align: center; margin-bottom: 15px; display: none; }
-        #qr-code-view { text-align: center; }
-        #qrImage { max-width: 280px; width: 100%; border-radius: 4px; margin: 0 auto 20px; }
-        .payment-details p { margin-bottom: 8px; font-size: 1em; line-height: 1.5; } .payment-details p strong { color: var(--secondary-color); }
-        .payment-details .amount { font-size: 1.8em; font-weight: 700; color: var(--primary-color); margin: 10px 0; }
-        .payment-details .memo { background: #e8f0fe; color: var(--primary-color); padding: 10px; border-radius: 8px; font-weight: bold; margin-top: 15px; word-break: break-all; }
-        .loader { width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid var(--primary-color); border-radius: 50%; animation: spin 1s linear infinite; margin: 20px auto; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
+        @media (max-width: 768px) { .section-title { font-size: 2.2em; } .hero h1 { font-size: 2.8em; } .hero p { font-size: 1.1em; } .pricing-box .price { font-size: 3em; } .tools-grid { grid-template-columns: repeat(2, 1fr); } }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 27, 42, 0.7); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); display: flex; align-items: center; justify-content: center; z-index: 1001; opacity: 0; visibility: hidden; transition: opacity 0.4s, visibility 0.4s; } .modal-overlay.active { opacity: 1; visibility: visible; } .modal-content { background: #fff; padding: 40px; border-radius: var(--border-radius); width: 90%; max-width: 500px; position: relative; transform: translateY(-20px) scale(0.95); transition: transform 0.4s; } .modal-overlay.active .modal-content { transform: translateY(0) scale(1); } .modal-close { position: absolute; top: 15px; right: 15px; font-size: 2em; font-weight: bold; color: #aaa; cursor: pointer; line-height: 1; border: none; background: none; } .modal-close:hover { color: #333; } .modal-content h3 { text-align: center; font-size: 1.8em; color: var(--secondary-color); margin-bottom: 25px; } .form-group { margin-bottom: 20px; } .form-group label { display: block; font-weight: 500; margin-bottom: 8px; color: #5f6368; } .form-group input { width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-color); font-size: 1em; font-family: 'Be Vietnam Pro', sans-serif; transition: border-color 0.3s, box-shadow 0.3s; } .form-group input:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(10, 104, 255, 0.2); } #form-error { color: #d93025; text-align: center; margin-bottom: 15px; display: none; } #qr-code-view { text-align: center; } #qrImage { max-width: 280px; width: 100%; border-radius: 4px; margin: 0 auto 20px; } .payment-details p { margin-bottom: 8px; font-size: 1em; line-height: 1.5; } .payment-details p strong { color: var(--secondary-color); } .payment-details .amount { font-size: 1.8em; font-weight: 700; color: var(--primary-color); margin: 10px 0; } .payment-details .memo { background: #e8f0fe; color: var(--primary-color); padding: 10px; border-radius: 8px; font-weight: bold; margin-top: 15px; word-break: break-all; } .loader { width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid var(--primary-color); border-radius: 50%; animation: spin 1s linear infinite; margin: 20px auto; } @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        #videoModal .modal-content { max-width: 900px; padding: 0; background: #000; overflow: hidden;} .video-container { position: relative; padding-bottom: 56.25%; height: 0; } .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; } #videoModal .modal-close { color: #fff; top: -35px; right: 0; font-size: 3em; text-shadow: 0 0 5px rgba(0,0,0,0.5); }
     </style>
 </head>
 <body>
-    <!-- NAVIGATION BAR -->
     <nav class="navbar"> <div class="nav-container"> <a href="#" class="nav-logo"> <img src="https://gpems.net/logo-icon.png" alt="GPEMS Logo"> <span>EMS SOLUTION</span> </a> <ul class="nav-links"> <li><a href="#objectives-benefits">Lợi ích</a></li> <li><a href="#tools">Công cụ</a></li> <li><a href="#curriculum">Nội dung</a></li> <li><a href="#instructors">Giảng viên</a></li> <li><a href="#faq">FAQ</a></li> </ul> <button class="btn nav-cta btn-register">Đăng ký ngay</button> </div> </nav>
     <button class="btn floating-cta btn-register">Đăng Ký</button>
 
-    <!-- HERO SECTION -->
     <header class="hero"> <div class="container fade-in"> <span class="course-tag">🎓 KHÓA HỌC ĐỘC QUYỀN</span> <h1>Xây Dựng Hệ Thống Quản Trị Tự Động – Không Cần Code</h1> <p>Biến mọi ý tưởng quản lý thành hệ thống thực thi tự động, dùng được ngay – chỉ sau 10 buổi học ứng dụng AI và No-code.</p> <button class="btn btn-register">Tham gia ngay</button> </div> </header>
 
     <main>
-        <section id="audience"> <div class="container"> <h2 class="section-title fade-in">✅ Khóa học này dành cho ai?</h2> <p class="section-subtitle fade-in">Nếu bạn thuộc một trong những nhóm dưới đây, khóa học này được thiết kế dành riêng cho bạn.</p> <div class="audience-grid"> <div class="audience-card fade-in"> <span class="icon">🏢</span> <h3>Chủ doanh nghiệp & Startup</h3> <p>CEO, Founder muốn tự tay xây dựng hệ thống quản trị hiện đại, linh hoạt theo sự phát triển của công ty.</p> </div> <div class="audience-card fade-in" style="transition-delay: 0.1s;"> <span class="icon">👨‍💼</span> <h3>Trưởng bộ phận & Quản lý</h3> <p>Trưởng phòng Marketing, Kinh doanh, Vận hành, Nhân sự muốn tối ưu hóa quy trình làm việc của đội nhóm.</p> </div> <div class="audience-card fade-in" style="transition-delay: 0.2s;"> <span class="icon">💡</span> <h3>Người muốn tự động hóa</h3> <p>Những ai đang mệt mỏi với quản lý thủ công bằng Excel, Zalo và muốn ứng dụng công nghệ mà không giỏi lập trình.</p> </div> </div> </div> </section>
-        <section id="objectives-benefits"><div class="container"><div class="image-content-grid"><div class="grid-image fade-in"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Dashboard phân tích dữ liệu" loading="lazy"></div><div class="grid-content fade-in" style="transition-delay: 0.1s;"><div class="feature-list"><h3>🎯 Mục tiêu cốt lõi</h3><ul><li>Tạo và vận hành hệ thống quản trị doanh nghiệp số: CRM, Giao việc, Tài liệu, Bán hàng, Thu chi.</li><li>Tự động hóa các quy trình thủ công bằng AI, Web App, Tự động hóa nền tảng.</li><li>Trực quan hóa dữ liệu quản trị qua Dashboard thông minh, ra quyết định dựa trên dữ liệu.</li><li>Nắm vững tư duy hệ thống, tự tin xây dựng mọi ứng dụng quản lý mà không cần lập trình.</li></ul></div></div></div></div></section>
-        
-        <!-- ======================================================= -->
-        <!--                   MỤC LOGO ĐÃ CẬP NHẬT                  -->
-        <!-- ======================================================= -->
+        <section id="audience"> <div class="container"> <h2 class="section-title fade-in">✅ Khóa học này dành cho ai?</h2> <p class="section-subtitle fade-in">Nếu bạn thuộc một trong những nhóm dưới đây, khóa học này được thiết kế dành riêng cho bạn.</p> <div class="audience-grid"> <div class="benefit-card fade-in"> <div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h6M9 11.25h6m-6 4.5h6M6.75 21v-2.25a2.25 2.25 0 0 1 2.25-2.25h6a2.25 2.25 0 0 1 2.25 2.25V21" /></svg></div> <h3>Chủ doanh nghiệp & Startup</h3><p>CEO, Founder muốn tự tay xây dựng hệ thống quản trị hiện đại, linh hoạt theo sự phát triển của công ty.</p> </div> <div class="benefit-card fade-in" style="transition-delay: 0.1s;"> <div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m-7.5-2.962A3.75 3.75 0 0 1 15 12a3.75 3.75 0 0 1 3.75 3.75m-16.5 0a3.75 3.75 0 0 1 3.75-3.75 3.75 3.75 0 0 1 3.75 3.75 3.75 3.75 0 0 1-3.75 3.75 3.75 3.75 0 0 1-3.75-3.75M9 12a3.75 3.75 0 0 1 3.75-3.75A3.75 3.75 0 0 1 16.5 12v2.25" /></svg></div> <h3>Trưởng bộ phận & Quản lý</h3><p>Trưởng phòng Marketing, Kinh doanh, Vận hành, Nhân sự muốn tối ưu hóa quy trình làm việc của đội nhóm.</p> </div> <div class="benefit-card fade-in" style="transition-delay: 0.2s;"> <div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" /></svg></div> <h3>Người muốn tự động hóa</h3><p>Những ai đang mệt mỏi với quản lý thủ công bằng Excel, Zalo và muốn ứng dụng công nghệ mà không giỏi lập trình.</p> </div> </div> </div> </section>
+        <section id="objectives-benefits" style="background-color: var(--light-bg-color);"><div class="container"><div class="image-content-grid"><div class="grid-image fade-in"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Dashboard phân tích dữ liệu" loading="lazy"></div><div class="grid-content fade-in" style="transition-delay: 0.1s;"><div class="feature-list"><h3>🎯 Mục tiêu cốt lõi</h3><ul><li>Tạo và vận hành hệ thống quản trị doanh nghiệp số: CRM, Giao việc, Tài liệu, Bán hàng, Thu chi.</li><li>Tự động hóa các quy trình thủ công bằng AI, Web App, Tự động hóa nền tảng.</li><li>Trực quan hóa dữ liệu quản trị qua Dashboard thông minh, ra quyết định dựa trên dữ liệu.</li><li>Nắm vững tư duy hệ thống, tự tin xây dựng mọi ứng dụng quản lý mà không cần lập trình.</li></ul></div></div></div></div></section>
         <section id="tools">
             <div class="container">
                 <h2 class="section-title fade-in">Hệ sinh thái công cụ bạn sẽ làm chủ</h2>
                 <div class="tools-grid fade-in">
-                    <div class="tool-item">
-                        <img src="https://logos-world.net/wp-content/uploads/2023/12/Google-Workspace-Emblem.png" alt="Google Workspace Logo" loading="lazy">
-                        <p>Google Workspace</p>
-                    </div>
-                    <div class="tool-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Google_Sheets_logo_%282014-2020%29.svg/512px-Google_Sheets_logo_%282014-2020%29.svg.png" alt="Google Sheets Logo" loading="lazy">
-                        <p>Google Sheets</p>
-                    </div>
-                     <div class="tool-item">
-                        <img src="https://appscript.online/wp-content/uploads/2023/04/appscript-1.webp" alt="Google Apps Script Logo" loading="lazy">
-                        <p>Apps Script</p>
-                    </div>
-                    <div class="tool-item">
-                        <img src="https://cdn-1.webcatalog.io/catalog/appsheet/appsheet-icon-filled-256.png" alt="Google AppSheet Logo" loading="lazy">
-                        <p>AppSheet</p>
-                    </div>
-                    <div class="tool-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/2048px-ChatGPT_logo.svg.png" alt="AI Agent Logo" loading="lazy">
-                        <p>AI Agent</p>
-                    </div>
-                    <div class="tool-item">
-                        <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/01/Logo-Zalo-Arc.png" alt="Zalo Logo" loading="lazy">
-                        <p>Zalo API</p>
-                    </div>
+                    <div class="tool-card"><img src="https://logos-world.net/wp-content/uploads/2023/12/Google-Workspace-Emblem.png" alt="Google Workspace Logo" loading="lazy"><p>Google Workspace</p></div>
+                    <div class="tool-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Google_Sheets_logo_%282014-2020%29.svg/512px-Google_Sheets_logo_%282014-2020%29.svg.png" alt="Google Sheets Logo" loading="lazy"><p>Google Sheets</p></div>
+                    <div class="tool-card"><img src="https://cdn-1.webcatalog.io/catalog/appsheet/appsheet-icon-filled-256.png" alt="Google AppSheet Logo" loading="lazy"><p>AppSheet</p></div>
+                    <div class="tool-card"><img src="https://sepay.vn/assets/img/payment-gateway/icon/smax.svg" alt="Smax Logo" loading="lazy"><p>Smax</p></div>
+                    <div class="tool-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/N8n-logo-new.svg/2560px-N8n-logo-new.svg.png" alt="n8n Logo" loading="lazy"><p>n8n.io</p></div>
                 </div>
             </div>
         </section>
 
-        <section id="curriculum"> <div class="container"> <h2 class="section-title fade-in">🗂️ Lộ trình 10 buổi học thực chiến</h2> <p class="section-subtitle fade-in">Từ tư duy nền tảng đến hoàn thiện một hệ thống tự động hoàn chỉnh cho doanh nghiệp của bạn.</p> <div class="curriculum-timeline"> <div class="session-container left fade-in"><div class="session-content"><h4>Buổi 1: Tư duy hệ thống & Xây dựng nền tảng</h4><p>Tư duy "No-code", bóc tách quy trình và xây dựng hệ thống quản lý dữ liệu động, liên kết phòng ban.</p></div></div> <div class="session-container right fade-in"><div class="session-content"><h4>Buổi 2: Quản lý khách hàng & Marketing (CRM)</h4><p>Tạo form thu lead, tự động chấm điểm tiềm năng, gửi email/tin nhắn chăm sóc và kết nối chatbot.</p></div></div> <div class="session-container left fade-in"><div class="session-content"><h4>Buổi 3: Quản lý Giao việc – Theo dõi tiến độ</h4><p>Tạo hệ thống giao việc đa chiều (lịch, kanban), tự động thông báo, nhắc việc và tổng hợp báo cáo.</p></div></div> <div class="session-container right fade-in"><div class="session-content"><h4>Buổi 4: Quản lý Tài liệu & Báo cáo</h4><p>Hệ thống hóa văn bản, tạo mẫu biểu động, số hóa quy trình duyệt – lưu trữ – tra cứu.</p></div></div> <div class="session-container left fade-in"><div class="session-content"><h4>Buổi 5: Quản lý Bán hàng & Báo giá</h4><p>Tạo form báo giá động, quản lý đơn hàng, công nợ, KPI và gửi báo giá tự động qua Email/Zalo.</p></div></div> <div class="session-container right fade-in"><div class="session-content"><h4>Buổi 6: Quản lý Tài chính – Thu Chi</h4><p>Tạo form thu chi, quản lý ngân sách, tự động đối chiếu dòng tiền và báo cáo lời-lỗ.</p></div></div> <div class="session-container left fade-in"><div class="session-content"><h4>Buổi 7: Tích hợp AI và Tự động hóa</h4><p>Tạo kịch bản AI tự sinh nội dung, email, trả lời khách hàng và tích hợp vào hệ thống CRM, báo cáo.</p></div></div> <div class="session-container right fade-in"><div class="session-content"><h4>Buổi 8: Tự động hóa với Workflow</h4><p>Thiết lập chuỗi hành động tự động: gửi thông báo Zalo/Telegram/Email, cập nhật sheet, sinh tài liệu.</p></div></div> <div class="session-container left fade-in"><div class="session-content"><h4>Buổi 9: Dashboard phân tích dữ liệu</h4><p>Xây dựng Dashboard theo vai trò (CEO, Sales, CSKH), trực quan hóa dữ liệu và gửi báo cáo định kỳ.</p></div></div> <div class="session-container right fade-in"><div class="session-content"><h4>Buổi 10: Hoàn thiện & Đóng gói hệ thống</h4><p>Tạo giao diện cuối, phân quyền, bảo mật và đóng gói hệ thống sẵn sàng cho doanh nghiệp vận hành.</p></div></div> </div> </div> </section>
-        <section id="format-benefits" style="background-color: #fff"><div class="container"><div class="image-content-grid image-right"><div class="grid-content fade-in"><div class="feature-list"><h3>💻 Hình thức học</h3><ul><li>Online qua Google Meet, tương tác trực tiếp.</li><li>10 buổi × 2 giờ học (Tổng thời lượng: 20h).</li><li>Có video ghi lại từng buổi học để xem lại.</li><li>Hỗ trợ sau khóa học trọn đời.</li></ul></div><div class="feature-list" style="margin-top: 40px;"><h3>🎁 Bạn nhận được gì?</h3><ul><li>Toàn bộ App mẫu được xây dựng thực tế.</li><li>Bộ tài liệu quy trình số hóa doanh nghiệp.</li><li>Tham gia nhóm kín hỗ trợ 24/7.</li><li>Bảo hành trọn đời hệ thống đã học.</li></ul></div></div><div class="grid-image fade-in" style="transition-delay: 0.1s;"><img src="https://scontent.fsgn10-2.fna.fbcdn.net/v/t39.30808-6/480334339_962207342717083_1954899218297351799_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=iWLu0OPOdcUQ7kNvwGo-Dz8&_nc_oc=Adlyp0zdDiPc2ToGQ6l0ZKbtDZUceaMjiSg8ErXcP40eL8ISZisjaNFWn14WfIpgm15ZPziahiGhUTCWRHi3DCBZ&_nc_zt=23&_nc_ht=scontent.fsgn10-2.fna&_nc_gid=jkT4Om60N7fmvJjFZ23YSw&oh=00_AfR928pomq38zk2hU_nMHpEm74TetsHAY-MTkhrojghMMA&oe=68819C5B&w=2070&auto=format&fit=crop" alt="Học online qua video call" loading="lazy"></div></div></div></section>
-        <section id="instructors" style="background-color: var(--light-bg-color);">
-  <div class="container">
-    <h2 class="section-title fade-in">👨‍🏫 Giảng viên chuyên gia</h2>
-    <p class="section-subtitle fade-in">
-      Được dẫn dắt bởi các chuyên gia với kinh nghiệm thực chiến triển khai thành công cho hàng trăm doanh nghiệp.
-    </p>
+        <section id="curriculum">
+            <div class="container">
+                <h2 class="section-title fade-in">Lộ trình 10 ngày "Xây dựng Trụ sở số"</h2>
+                <p class="section-subtitle fade-in">Mỗi buổi học là một "chiến thắng", giải quyết một vấn đề thực tế trong doanh nghiệp của bạn.</p>
+                <div class="learning-philosophy fade-in">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z" /></svg>
+                    <div><h4>Phương pháp đào tạo Thực chiến & Linh hoạt</h4><p>Mỗi buổi học đều có <strong>Demo sản phẩm thực tế trước</strong> để bạn thấy đích đến, sau đó là <strong>hướng dẫn chi tiết</strong> và <strong>thảo luận mở rộng</strong>. Khung chương trình là nền tảng, nội dung sẽ liên tục được cập nhật theo nhu cầu thực tế của học viên.</p></div>
+                </div>
+                <div class="curriculum-accordion fade-in">
+                    <!-- Giai đoạn 1 -->
+                    <div class="chapter-item"><button class="chapter-header"><span class="chapter-title"><span class="icon">+</span><h4>Giai đoạn 1 (Buổi 1-4): Nền tảng Vận hành Cốt lõi</h4></span><span class="chapter-summary">4 buổi • 16 bài học</span></button><div class="lesson-list">
+                        <div class="lesson-item"><span class="lesson-title" style="color:var(--primary-color); font-weight:700;">Buổi 1: Phép màu No-Code - App đầu tiên trong 30 phút</span></div>
+                        <div class="lesson-item"><span class="lesson-title"><span class="icon">►</span><p>1.1: Demo & Thử thách "App trong 15 phút"</p></span><span class="lesson-meta"><button class="btn-preview">Xem trước</button></span></div>
+                        <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>1.2: Giải mã "Phép màu" No-Code</p></span></div>
+                        <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>1.3: Xây dựng "Bộ não" Doanh nghiệp trên Sheets</p></span></div>
+                        <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>1.4: Nền tảng cốt lõi - Liên kết dữ liệu</p></span></div>
+                        <div class="lesson-item"><span class="lesson-title" style="color:var(--primary-color); font-weight:700;">Buổi 2: Chấm dứt "Quên việc, trễ deadline"</span></div>
+                        <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>2.1: Mục tiêu & Demo hệ thống giao việc tự động</p></span></div>
+                        <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>2.2: Bước 1: Thiết kế Database công việc</p></span></div>
+                        <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>2.3: Bước 2: Dựng Kanban Board & Calendar</p></span></div>
+                        <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>2.4: "Đòn bẩy": Tự động nhắc việc sắp hết hạn</p></span></div>
+                        <div class="lesson-item"><span class="lesson-title" style="color:var(--primary-color); font-weight:700;">Buổi 3: Nhìn thấu Dòng tiền Real-time</h4></span></div>
+                        <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>3.1: Mục tiêu & Demo sổ quỹ điện tử</p></span></div>
+                        <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>3.2: Bước 1: Thiết kế Database Thu-Chi</p></span></div>
+                        <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>3.3: Bước 2: Form Thu-Chi & Tự động tính số dư</p></span></div>
+                        <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>3.4: "Đòn bẩy": Biểu đồ dòng tiền cho lãnh đạo</p></span></div>
+                        <div class="lesson-item"><span class="lesson-title" style="color:var(--primary-color); font-weight:700;">Buổi 4: Số hóa quy trình Phê duyệt</h4></span></div>
+                        <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>4.1: Mục tiêu & Demo hệ thống phê duyệt online</p></span></div>
+                        <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>4.2: Bước 1: Thiết kế luồng duyệt & Database</p></span></div>
+                        <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>4.3: Bước 2: Dựng nút "Duyệt" và "Từ chối"</p></span></div>
+                        <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>4.4: Đòn bẩy: Tự động gửi email thông báo kết quả</p></span></div>
+                    </div></div>
+                    <div class="chapter-item"><button class="chapter-header"><span class="chapter-title"><span class="icon">+</span><h4>Giai đoạn 2 (Buổi 5-7): Xây dựng Cỗ máy Tăng trưởng</h4></span><span class="chapter-summary">3 buổi • 12 bài học</span></button><div class="lesson-list">
+                         <div class="lesson-item"><span class="lesson-title" style="color:var(--primary-color); font-weight:700;">Buổi 5: Chinh phục Khách hàng (CRM)</span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>5.1: Mục tiêu & Demo hệ thống CRM 360 độ</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>5.2: Bước 1: Thiết kế Database khách hàng</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>5.3: Bước 2: Form thu lead & Ghi nhật ký tương tác</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>5.4: "Đòn bẩy": Tự động gửi email chúc mừng sinh nhật</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title" style="color:var(--primary-color); font-weight:700;">Buổi 6: Báo giá chuyên nghiệp trong 1 Click</span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>6.1: Mục tiêu & Demo quy trình báo giá tự động</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>6.2: Bước 1: Thiết kế Database sản phẩm & đơn hàng</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>6.3: Bước 2: Dựng tính năng Form báo giá động</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>6.4: "A-HA Moment": Tự động xuất PDF & gửi Email</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title" style="color:var(--primary-color); font-weight:700;">Buổi 7: Dashboard của CEO</h4></span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>7.1: Mục tiêu & Demo Dashboard cho lãnh đạo</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>7.2: Bước 1: Xây dựng Dashboard Vận hành & Doanh thu</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>7.3: Bước 2: Dashboard cho Nhân viên tự theo dõi KPI</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>7.4: "Đòn bẩy": Tự động gửi báo cáo tuần qua Email</p></span></div>
+                    </div></div>
+                    <div class="chapter-item"><button class="chapter-header"><span class="chapter-title"><span class="icon">+</span><h4>Giai đoạn 3 (Buổi 8-10): Tối ưu & Mở rộng thông minh</h4></span><span class="chapter-summary">3 buổi • 11 bài học</span></button><div class="lesson-list">
+                         <div class="lesson-item"><span class="lesson-title" style="color:var(--primary-color); font-weight:700;">Buổi 8: "Trợ lý ảo" AI cho nhà Quản lý</span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>8.1: Mục tiêu & Demo sức mạnh của Google AI</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>8.2: Bước 1: Tích hợp AI Task trên AppSheet</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>8.3: Bước 2: AI tự động phân loại & Tóm tắt email</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>8.4: Mở rộng: Sử dụng Google AI Studio & App Script</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title" style="color:var(--primary-color); font-weight:700;">Buổi 9: "Nhạc trưởng" Tự động hóa</span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>9.1: Case Study 1: Tự động báo đơn hàng mới qua Zalo (Smax)</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>9.2: Case Study 2: Tự động lấy lead từ Facebook (n8n)</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>9.3: "Đỉnh cao": Kết hợp n8n và AI phân tích lead tự động</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title" style="color:var(--primary-color); font-weight:700;">Buổi 10: Lễ Tốt nghiệp - Triển khai hệ thống</h4></span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>10.1: Phân quyền & Bảo mật chi tiết</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>10.2: "Make Up" cho App - Tùy chỉnh thương hiệu</p></span></div>
+                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>10.3: Hướng dẫn triển khai và đào tạo đội ngũ</p></span></div>
+                    </div></div>
+                </div>
+            </div>
+        </section>
 
-    <div class="instructors-grid">
-      <!-- Giảng viên 1 -->
-      <div class="instructor-card fade-in">
-        <img 
-          src="https://admin.gpems.net/storage/uploads/courses/lecturers/dwDwZCThmWPgEM0kDi8XnYWkuLke9k-metaNzI0MjU1MTcwMTY2NzAzMTA4MC5wbmc%3D-.png" 
-          alt="Chân dung giảng viên Nguyễn Tấn Hiền" 
-          loading="lazy"
-        >
-        <h3>Nguyễn Tấn Hiền</h3>
-        <p class="title">Founder & CEO EMS SOLUTION</p>
-        <p>Chuyên gia triển khai hệ thống quản trị cho hơn 200+ doanh nghiệp vừa và nhỏ.</p>
-      </div>
-
-      <!-- Giảng viên 2 -->
-      <div class="instructor-card fade-in" style="transition-delay: 0.1s;">
-        <img 
-          src="https://admin.gpems.net/storage/uploads/courses/lecturers/mlXRjIPyPsdcucphnW5fNbCrq9IRoH-metaMTkwMjE3NjgyNzE2NzE1MzM0MzAuanBn-.jpg" 
-          alt="Chân dung giảng viên Nguyễn Văn Hòa" 
-          loading="lazy"
-        >
-        <h3>Nguyễn Văn Hòa</h3>
-        <p class="title">Co-Founder & CEO EMS SOLUTION</p>
-        <p>Chuyên gia tư vấn số hóa và ứng dụng AI thực chiến trong quản lý.</p>
-      </div>
-    </div>
-  </div>
-</section>
-        <section id="faq"> <div class="container"> <h2 class="section-title fade-in">❓ Câu hỏi thường gặp</h2> <div class="faq-accordion"> <div class="faq-item fade-in"> <button class="faq-question">Tôi không biết gì về công nghệ, có học được không?</button> <div class="faq-answer"><p>Hoàn toàn được! Khóa học được thiết kế đặc biệt cho người không chuyên, không cần biết lập trình. Bạn sẽ được hướng dẫn từng bước, từ tư duy đến thực hành click-chuột để xây dựng hệ thống.</p></div> </div> <div class="faq-item fade-in"> <button class="faq-question">Khóa học sử dụng những công cụ gì?</button> <div class="faq-answer"><p>Chúng ta sẽ sử dụng nền tảng No-code Google AppSheet làm trọng tâm, kết hợp với các công cụ tự động hóa như Zapier/Make.io, và ứng dụng AI (như ChatGPT) để tạo nên một hệ thống thông minh, toàn diện.</p></div> </div> <div class="faq-item fade-in"> <button class="faq-question">Nếu tôi bận và bỏ lỡ một buổi học thì sao?</button> <div class="faq-answer"><p>Đừng lo lắng. Tất cả các buổi học đều được ghi hình lại. Bạn sẽ có quyền truy cập vào video bài giảng trọn đời để có thể xem lại bất cứ lúc nào.</p></div> </div> <div class="faq-item fade-in"> <button class="faq-question">Hệ thống xây dựng xong có thể mở rộng được không?</button> <div class="faq-answer"><p>Chắc chắn có. Nền tảng No-code rất linh hoạt. Sau khóa học, bạn hoàn toàn có đủ kiến thức để tự mình chỉnh sửa, nâng cấp và mở rộng hệ thống khi doanh nghiệp phát triển.</p></div> </div> <div class="faq-item fade-in"> <button class="faq-question">"Bảo hành trọn đời" nghĩa là như thế nào?</button> <div class="faq-answer"><p>Nghĩa là chúng tôi cam kết hỗ trợ bạn sửa lỗi và giải đáp các vấn đề liên quan đến những kiến thức và hệ thống đã được học, đảm bảo ứng dụng của bạn luôn hoạt động ổn định.</p></div> </div> </div> </div> </section>
+        <section id="format-benefits" style="background-color: #fff"><div class="container"><div class="image-content-grid image-right"><div class="grid-content fade-in"><div class="feature-list"><h3>💻 Hình thức học</h3><ul><li>Online qua Google Meet, tương tác trực tiếp.</li><li>10 buổi × 2 giờ học (Tổng thời lượng: 20h).</li><li>Có video ghi lại từng buổi học để xem lại.</li><li>Hỗ trợ sau khóa học trọn đời.</li></ul></div><div class="feature-list" style="margin-top: 40px;"><h3>🎁Bạn nhận được gì?</h3><ul><li>Toàn bộ App mẫu được xây dựng thực tế.</li><li>Bộ tài liệu quy trình số hóa doanh nghiệp.</li><li>Tham gia nhóm kín hỗ trợ 24/7.</li><li>Bảo hành trọn đời hệ thống đã học.</li></ul></div></div><div class="grid-image fade-in" style="transition-delay: 0.1s;"><img src="https://scontent.fsgn10-2.fna.fbcdn.net/v/t39.30808-6/480334339_962207342717083_1954899218297351799_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=iWLu0OPOdcUQ7kNvwGo-Dz8&_nc_oc=Adlyp0zdDiPc2ToGQ6l0ZKbtDZUceaMjiSg8ErXcP40eL8ISZisjaNFWn14WfIpgm15ZPziahiGhUTCWRHi3DCBZ&_nc_zt=23&_nc_ht=scontent.fsgn10-2.fna&_nc_gid=jkT4Om60N7fmvJjFZ23YSw&oh=00_AfR928pomq38zk2hU_nMHpEm74TetsHAY-MTkhrojghMMA&oe=68819C5B" alt="Học online qua video call" loading="lazy"></div></div></div></section>
+        <section id="instructors"> <div class="container"> <h2 class="section-title fade-in">👨‍🏫 Giảng viên chuyên gia</h2> <p class="section-subtitle fade-in">Được dẫn dắt bởi các chuyên gia với kinh nghiệm thực chiến triển khai thành công cho hàng trăm doanh nghiệp.</p> <div class="instructors-grid"> <div class="instructor-card fade-in"> <img src="https://admin.gpems.net/storage/uploads/courses/lecturers/dwDwZCThmWPgEM0kDi8XnYWkuLke9k-metaNzI0MjU1MTcwMTY2NzAzMTA4MC5wbmc%3D-.png" alt="Chân dung giảng viên Nguyễn Tấn Hiền" loading="lazy"> <h3>Nguyễn Tấn Hiền</h3> <p class="title">Founder & CEO EMS SOLUTION</p> <p>Chuyên gia triển khai hệ thống quản trị cho hơn 200+ doanh nghiệp vừa và nhỏ.</p> </div> <div class="instructor-card fade-in" style="transition-delay: 0.1s;"> <img src="https://admin.gpems.net/storage/uploads/courses/lecturers/mlXRjIPyPsdcucphnW5fNbCrq9IRoH-metaMTkwMjE3NjgyNzE2NzE1MzM0MzAuanBn-.jpg" alt="Chân dung giảng viên Nguyễn Văn Hòa" loading="lazy"> <h3>Nguyễn Văn Hòa</h3> <p class="title">Co-Founder & CEO EMSSOLUTION</p> <p>Chuyên gia tư vấn số hóa và ứng dụng AI thực chiến trong quản lý.</p> </div> </div> </div> </section>
+        <section id="faq"> <div class="container"> <h2 class="section-title fade-in">❓ Câu hỏi thường gặp</h2> <div class="faq-accordion fade-in"> <div class="faq-item"> <button class="faq-question">Tôi không biết gì về công nghệ, có học được không?</button> <div class="faq-answer"><p>Hoàn toàn được! Khóa học được thiết kế đặc biệt cho người không chuyên, không cần biết lập trình. Bạn sẽ được hướng dẫn từng bước, từ tư duy đến thực hành click-chuột để xây dựng hệ thống.</p></div> </div> <div class="faq-item"> <button class="faq-question">Khóa học sử dụng những công cụ gì?</button> <div class="faq-answer"><p>Chúng ta sẽ sử dụng nền tảng No-code Google AppSheet làm trọng tâm, kết hợp với các công cụ tự động hóa như Smax, n8n, và Google AI để tạo nên một hệ thống thông minh, toàn diện.</p></div> </div> <div class="faq-item"> <button class="faq-question">Nếu tôi bận và bỏ lỡ một buổi học thì sao?</button> <div class="faq-answer"><p>Đừng lo lắng. Tất cả các buổi học đều được ghi hình lại. Bạn sẽ có quyền truy cập vào video bài giảng trọn đời để có thể xem lại bất cứ lúc nào.</p></div> </div> <div class="faq-item"> <button class="faq-question">Hệ thống xây dựng xong có thể mở rộng được không?</button> <div class="faq-answer"><p>Chắc chắn có. Nền tảng No-code rất linh hoạt. Sau khóa học, bạn hoàn toàn có đủ kiến thức để tự mình chỉnh sửa, nâng cấp và mở rộng hệ thống khi doanh nghiệp phát triển.</p></div> </div> <div class="faq-item"> <button class="faq-question">"Bảo hành trọn đời" nghĩa là như thế nào?</button> <div class="faq-answer"><p>Nghĩa là chúng tôi cam kết hỗ trợ bạn sửa lỗi và giải đáp các vấn đề liên quan đến những kiến thức và hệ thống đã được học, đảm bảo ứng dụng của bạn luôn hoạt động ổn định.</p></div> </div> </div> </div> </section>
         <section id="pricing"> <div class="container fade-in"> <div class="pricing-box"> <h3>💸 Đầu tư một lần, sở hữu trọn đời</h3> <div class="price">4.500.000 VNĐ</div> <p class="note">(Giá đã bao gồm toàn bộ tài liệu, app mẫu, hỗ trợ & bảo hành)</p> <button class="btn btn-register">Đăng ký và nhận ưu đãi</button> </div> </div> </section>
         <section id="final-cta" style="padding-top: 0;"> <div class="container"> <div class="final-quote fade-in"> ✨ Học xong bạn không chỉ “biết làm”, mà còn có trong tay một hệ thống thật để đưa vào vận hành ngay trong doanh nghiệp của mình. </div> </div> </section>
     </main>
-    
-    <!-- FOOTER -->
     <footer id="footer-contact"> <div class="container"> <a href="#" class="footer-logo"> <img src="https://gpems.net/logo-icon.png" alt="GPEMS Logo"> <span>EMS SOLUTION</span> </a> <div class="footer-contact"> <h3>Liên hệ tư vấn và đăng ký</h3> <p>Hotline: <a href="tel:0903375265">0903.375.265 (Mr. Hiền)</a></p> <p>Email: <a href="mailto:admin@gpems.ne">admin@gpems.ne</a></p> </div> <div class="copyright"> <p>© 2025 EMS SOLUTION. All Rights Reserved.</p> </div> </div> </footer>
-
-    <!-- MODAL (POPUP) -->
-    <div class="modal-overlay" id="registrationModal"> <div class="modal-content"> <button class="modal-close" id="modalCloseBtn">×</button> <div id="registration-form-container"> <h3>Thông tin đăng ký</h3> <form id="registrationForm"> <div class="form-group"> <label for="fullName">Họ và tên (để in chứng chỉ)</label> <input type="text" id="fullName" name="fullName" required> </div> <div class="form-group"> <label for="email">Email (để kích hoạt khóa học)</label> <input type="email" id="email" name="email" required> </div> <div class="form-group"> <label for="phone">Số điện thoại (Zalo hỗ trợ)</label> <input type="tel" id="phone" name="phone" required> </div> <div class="form-group"> <label for="discountCode">Mã giảm giá (nếu có)</label> <input type="text" id="discountCode" name="discountCode" placeholder="Ví dụ: EMS10"> </div> <p id="form-error"></p> <button type="submit" class="btn" style="width: 100%;">Xác nhận và thanh toán</button> </form> </div> <div id="qr-code-view" style="display: none;"> <h3>Quét mã để thanh toán</h3> <div id="loader" class="loader"></div> <img id="qrImage" src="" alt="VietQR Code" style="display: none;"> <div class="payment-details"> <p>Ngân hàng: <strong>Kien Long Bank (KLB)</strong></p> <p>Chủ tài khoản: <strong>NGUYEN TAN HIEN</strong></p> <p>Số tiền cần thanh toán:</p> <p class="amount" id="paymentAmount"></p> <p>Nội dung chuyển khoản:</p> <p class="memo" id="paymentMemo"></p> </div> </div> </div> </div>
+    <div class="modal-overlay" id="registrationModal"> <div class="modal-content"> <button class="modal-close" id="registrationModalClose">&times;</button> <div id="registration-form-container"> <h3>Thông tin đăng ký</h3> <form id="registrationForm"> <div class="form-group"> <label for="fullName">Họ và tên (để in chứng chỉ)</label> <input type="text" id="fullName" name="fullName" required> </div> <div class="form-group"> <label for="email">Email (để kích hoạt khóa học)</label> <input type="email" id="email" name="email" required> </div> <div class="form-group"> <label for="phone">Số điện thoại (Zalo hỗ trợ)</label> <input type="tel" id="phone" name="phone" required> </div> <div class="form-group"> <label for="discountCode">Mã giảm giá (nếu có)</label> <input type="text" id="discountCode" name="discountCode" placeholder="Ví dụ: EMS10"> </div> <p id="form-error"></p> <button type="submit" class="btn" style="width: 100%;">Xác nhận và thanh toán</button> </form> </div> <div id="qr-code-view" style="display: none;"> <h3>Quét mã để thanh toán</h3> <div id="loader" class="loader"></div> <img id="qrImage" src="" alt="VietQR Code" style="display: none;"> <div class="payment-details"> <p>Ngân hàng: <strong>Kien Long Bank (KLB)</strong></p> <p>Chủ tài khoản: <strong>NGUYEN TAN HIEN</strong></p> <p>Số tiền cần thanh toán:</p> <p class="amount" id="paymentAmount"></p> <p>Nội dung chuyển khoản:</p> <p class="memo" id="paymentMemo"></p> </div> </div> </div> </div>
+    <div class="modal-overlay" id="videoModal"> <div class="modal-content"> <button class="modal-close" id="videoModalClose">&times;</button> <div class="video-container"> <iframe id="videoPlayer" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> </div> </div> </div>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Hiệu ứng fade-in
             const faders = document.querySelectorAll('.fade-in');
             const appearOnScroll = new IntersectionObserver((entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
             faders.forEach(fader => appearOnScroll.observe(fader));
             
-            // FAQ Accordion
+            const chapterHeaders = document.querySelectorAll('.chapter-header');
+            chapterHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const lessonList = this.nextElementSibling;
+                    const isActive = this.classList.contains('active');
+                    chapterHeaders.forEach(otherHeader => { if (otherHeader !== this) { otherHeader.classList.remove('active'); otherHeader.nextElementSibling.style.maxHeight = null; } });
+                    this.classList.toggle('active');
+                    if (this.classList.contains('active')) { lessonList.style.maxHeight = lessonList.scrollHeight + "px"; } else { lessonList.style.maxHeight = null; }
+                });
+            });
+
             const faqQuestions = document.querySelectorAll('.faq-question');
-            faqQuestions.forEach(q => q.addEventListener('click', () => { const a = q.nextElementSibling; q.classList.toggle('active'); if (q.classList.contains('active')) { a.style.maxHeight = a.scrollHeight + "px"; a.style.padding = '0 20px 20px'; } else { a.style.maxHeight = null; a.style.padding = '0 20px 0 20px';} }));
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isActive = question.classList.contains('active');
+                    faqQuestions.forEach(q => { if (q !== question) { q.classList.remove('active'); q.nextElementSibling.style.maxHeight = null; } });
+                    question.classList.toggle('active');
+                    if (question.classList.contains('active')) { answer.style.maxHeight = answer.scrollHeight + 'px'; } else { answer.style.maxHeight = null; }
+                });
+            });
 
-            // Modal & QR Code
-            const modal = document.getElementById('registrationModal'), openModalBtns = document.querySelectorAll('.btn-register'), closeModalBtn = document.getElementById('modalCloseBtn'), formContainer = document.getElementById('registration-form-container'), qrView = document.getElementById('qr-code-view'), registrationForm = document.getElementById('registrationForm'), formError = document.getElementById('form-error'), loader = document.getElementById('loader'), qrImage = document.getElementById('qrImage');
+            const videoModal = document.getElementById('videoModal'), videoModalClose = document.getElementById('videoModalClose'), previewBtn = document.querySelector('.btn-preview'), videoPlayer = document.getElementById('videoPlayer');
+            const videoSrc = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
+            function openVideoModal(e) { e.preventDefault(); videoPlayer.src = videoSrc; videoModal.classList.add('active'); }
+            function closeVideoModal() { videoModal.classList.remove('active'); videoPlayer.src = ""; }
+            previewBtn.addEventListener('click', openVideoModal);
+            videoModalClose.addEventListener('click', closeVideoModal);
+            videoModal.addEventListener('click', (e) => { if (e.target === videoModal) closeVideoModal(); });
+
+            const regModal = document.getElementById('registrationModal'), openModalBtns = document.querySelectorAll('.btn-register'), regModalClose = document.getElementById('registrationModalClose'), formContainer = document.getElementById('registration-form-container'), qrView = document.getElementById('qr-code-view'), registrationForm = document.getElementById('registrationForm'), formError = document.getElementById('form-error'), loader = document.getElementById('loader'), qrImage = document.getElementById('qrImage');
             const BASE_PRICE = 4500000, DISCOUNT_CODE = 'EMS10';
-            const BANK_INFO = {
-                code: 'KLB',
-                accountNumber: '101499100004000677',
-                accountHolder: 'NGUYEN TAN HIEN'
-            };
-
-            const openModal = () => { formContainer.style.display = 'block'; qrView.style.display = 'none'; registrationForm.reset(); formError.style.display = 'none'; modal.classList.add('active'); };
-            const closeModal = () => { modal.classList.remove('active'); };
+            const BANK_INFO = { code: 'KLB', accountNumber: '101499100004000677', accountHolder: 'NGUYEN TAN HIEN' };
+            const openRegModal = () => { formContainer.style.display = 'block'; qrView.style.display = 'none'; registrationForm.reset(); formError.style.display = 'none'; regModal.classList.add('active'); };
+            const closeRegModal = () => { regModal.classList.remove('active'); };
             const generateOrderId = () => `EMS${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
-
-            openModalBtns.forEach(btn => btn.addEventListener('click', openModal));
-            closeModalBtn.addEventListener('click', closeModal);
-            modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-
+            openModalBtns.forEach(btn => btn.addEventListener('click', openRegModal));
+            regModalClose.addEventListener('click', closeRegModal);
+            regModal.addEventListener('click', e => { if (e.target === regModal) closeRegModal(); });
             function generateVietQR(bankCode, accountNumber, amount, description, accountHolder) {
                 return `https://img.vietqr.io/image/${bankCode}-${accountNumber}-compact2.png?amount=${amount}&addInfo=${encodeURIComponent(description)}&accountName=${encodeURIComponent(accountHolder)}`;
             }
-
             registrationForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const fullName = document.getElementById('fullName').value.trim(), email = document.getElementById('email').value.trim(), phone = document.getElementById('phone').value.trim(), discountCodeInput = document.getElementById('discountCode').value.trim();
                 if (!fullName || !email || !phone) { formError.textContent = 'Vui lòng điền đầy đủ các trường bắt buộc.'; formError.style.display = 'block'; return; }
-                
                 formContainer.style.display = 'none'; qrView.style.display = 'block'; loader.style.display = 'block'; qrImage.style.display = 'none';
-
                 let finalPrice = (discountCodeInput.toUpperCase() === DISCOUNT_CODE) ? BASE_PRICE * 0.9 : BASE_PRICE;
                 const orderId = generateOrderId();
                 const qrApiUrl = generateVietQR(BANK_INFO.code, BANK_INFO.accountNumber, finalPrice, orderId, BANK_INFO.accountHolder);
-                
                 qrImage.src = qrApiUrl;
-                qrImage.onload = function() {
-                    loader.style.display = 'none';
-                    qrImage.style.display = 'block';
-                };
-                qrImage.onerror = function() {
-                    loader.style.display = 'none';
-                    qrView.innerHTML = '<p style="color:red;">Lỗi tải mã QR. Vui lòng kiểm tra kết nối mạng và thử lại.</p>';
-                };
-                
+                qrImage.onload = () => { loader.style.display = 'none'; qrImage.style.display = 'block'; };
+                qrImage.onerror = () => { loader.style.display = 'none'; qrView.innerHTML = '<p style="color:red;">Lỗi tải mã QR. Vui lòng kiểm tra kết nối mạng và thử lại.</p>'; };
                 document.getElementById('paymentAmount').textContent = finalPrice.toLocaleString('vi-VN') + ' VNĐ';
                 document.getElementById('paymentMemo').textContent = orderId;
                 formError.style.display = 'none';
             });
+
+            // Active Menu Scrolling
+            const sections = document.querySelectorAll("section[id]");
+            const navLinks = document.querySelectorAll(".nav-links a");
+            const observerOptions = { rootMargin: "-30% 0px -70% 0px" };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute("id");
+                        navLinks.forEach((link) => {
+                            link.classList.remove("active-link");
+                            if (link.getAttribute("href") === `#${id}`) {
+                                link.classList.add("active-link");
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+            sections.forEach((section) => observer.observe(section));
         });
     </script>
-    
-    <!-- Tích hợp Chatbox Tawk.to (dán mã của bạn vào đây) -->
-    <!--
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/YOUR_WIDGET_ID';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-    -->
-
 </body>
 </html>
