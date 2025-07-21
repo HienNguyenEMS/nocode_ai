@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- === UPDATE: THÊM CÁC THẺ META CHỐNG CACHE === -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <!-- === KẾT THÚC UPDATE === -->
 
     <title>Khóa học: Hệ Thống Quản Lý Tự Động với AI & Nocode</title>
-    <!-- === BỔ SUNG: CÁC THÀNH PHẦN CHO PROFILE CHUYÊN NGHIỆP (SEO & METADATA) === -->
     <meta name="description" content="Khóa học giúp bạn từng bước làm chủ AI và Nocode để số hóa mọi quy trình bạn muốn mà không cần code">
     <meta name="keywords" content="AI Agent, nocode, automation, appsheet, google sheets, google workspace, n8n, smax, looker studio">
     <meta name="author" content="EMS SOLUTION">
@@ -51,14 +48,14 @@
         .nav-logo img { height: 40px; }
         .nav-logo span { font-size: 1.15em; font-weight: 700; color: var(--secondary-color); display: none; }
         @media (min-width: 480px) { .nav-logo span { display: block; } }
-        .nav-links { list-style: none; display: none; gap: 25px; }
-        @media (min-width: 860px) { .nav-links { display: flex; } }
-        .nav-links a { text-decoration: none; color: var(--secondary-color); font-weight: 500; transition: color 0.3s; position: relative; padding: 5px 0; }
+        .nav-links { list-style: none; display: none; gap: 20px; } /* Giảm gap menu */
+        @media (min-width: 992px) { .nav-links { display: flex; } }
+        .nav-links a { text-decoration: none; color: var(--secondary-color); font-weight: 500; transition: color 0.3s; position: relative; padding: 5px 0; font-size: 0.95em; }
         .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--primary-color); transition: width 0.3s; }
         .nav-links a:hover::after, .nav-links a.active-link::after { width: 100%; }
         .nav-links a.active-link { color: var(--primary-color); font-weight: 700; }
         .nav-cta { display: none; }
-        @media (min-width: 860px) { .nav-cta { display: inline-block; } }
+        @media (min-width: 992px) { .nav-cta { display: inline-block; } }
         
         .btn, .btn-register { position: relative; overflow: hidden; display: inline-block; background-color: var(--accent-color); color: var(--light-text-color); padding: 12px 28px; font-size: 0.95em; font-weight: 700; text-decoration: none; border-radius: 50px; transition: all 0.3s; text-transform: uppercase; box-shadow: 0 4px 15px rgba(255, 109, 0, 0.3); border: none; cursor: pointer; z-index: 1; }
         .btn:hover, .btn-register:hover { background-color: #e65100; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255, 109, 0, 0.4); }
@@ -70,6 +67,11 @@
         .hero p { font-size: 1.2em; margin-bottom: 30px; max-width: 750px; margin-left: auto; margin-right: auto; font-weight: 400; opacity: 0.9; }
         .hero .course-tag { background: var(--primary-color); color: white; padding: 6px 18px; border-radius: 20px; font-weight: 500; display: inline-block; margin-bottom: 20px; }
         
+        .feature-list h3 { font-size: 1.6em; color: var(--secondary-color); margin-bottom: 15px; }
+        .feature-list ul { list-style: none; padding-left: 0; margin: 0; }
+        .feature-list li { padding-left: 35px; position: relative; margin-bottom: 12px; font-size: 1.05em; }
+        .feature-list li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--primary-color); font-weight: bold; font-size: 1.2em; width: 24px; height: 24px; text-align: center; }
+
         #audience { background-color: #fff; }
         .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         .benefit-card { background: #fff; padding: 30px 25px; border-radius: var(--border-radius); box-shadow: var(--box-shadow); text-align: center; border: 1px solid var(--border-color); transition: transform 0.3s, box-shadow 0.3s; }
@@ -99,7 +101,7 @@
         .btn-preview { background-color: var(--primary-color); color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.8em; font-weight: 500; transition: background-color 0.3s; text-decoration: none; }
         .btn-preview:hover { background-color: #0854d1; }
         
-        #tools { background-color: #fff; }
+        #tools { background-color: var(--light-bg-color); }
         .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px 30px; align-items: center; max-width: 900px; margin: 0 auto; }
         .tool-card { text-align: center; padding: 15px; background-color: #fff; border-radius: var(--border-radius); transition: all 0.3s; border: 1px solid transparent; }
         .tool-card:hover { transform: translateY(-5px); box-shadow: var(--box-shadow); border-color: var(--border-color); }
@@ -124,7 +126,6 @@
 
         .image-content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; } .image-content-grid .grid-image img { border-radius: var(--border-radius); box-shadow: var(--box-shadow); } .pricing-box { max-width: 550px; margin: 0 auto; background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)); color: var(--light-text-color); padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(10, 104, 255, 0.3); } .pricing-box h3 { font-size: 1.8em; margin-bottom: 15px; } .pricing-box .price { font-size: 3.5em; font-weight: 800; margin-bottom: 10px; letter-spacing: -2px; } .pricing-box .note { font-style: italic; opacity: 0.9; margin-bottom: 25px; } .final-quote { text-align: center; font-size: 1.3em; font-style: italic; color: var(--secondary-color); max-width: 800px; margin: 30px auto 0 auto; padding: 25px; background: var(--light-bg-color); border-radius: var(--border-radius); border-top: 4px solid var(--primary-color); } 
         
-        /* === NEW CSS FOR FOOTER === */
         footer { background-color: var(--secondary-color); color: #bdc1c6; padding: 60px 0 30px; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1.5fr 1fr; gap: 40px; text-align: left; }
         .footer-col h4 { font-size: 1.1em; color: #fff; margin-bottom: 20px; margin-top: 0; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -138,17 +139,6 @@
         .social-icons svg { width: 22px; height: 22px; fill: #fff; }
         .copyright { margin-top: 50px; padding-top: 25px; border-top: 1px solid #3d4a5c; font-size: 0.9em; text-align: center; }
 
-        @media (max-width: 992px) {
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-            .footer-grid .footer-col:first-child { grid-column: 1 / -1; } /* Make first col full width */
-        }
-        @media (max-width: 768px) { 
-            .footer-grid { grid-template-columns: 1fr; gap: 30px; text-align: center;}
-            .footer-logo img { margin-left: auto; margin-right: auto; }
-            .social-icons { justify-content: center; }
-        }
-
-        /* === NEW CSS FOR FLOATING WIDGETS === */
         .floating-widget-container { position: fixed; bottom: 25px; right: 25px; z-index: 998; display: flex; flex-direction: column; gap: 12px; }
         .floating-btn { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; background-color: var(--primary-color); box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s, opacity 0.3s, visibility 0.3s; text-decoration: none; border: 2px solid #fff; }
         .floating-btn:hover { transform: scale(1.1); }
@@ -157,7 +147,12 @@
         .back-to-top-btn { background-color: var(--accent-color); opacity: 0; visibility: hidden; transform: translateY(10px); }
         .back-to-top-btn.visible { opacity: 1; visibility: visible; transform: translateY(0); }
 
-        @media (max-width: 992px) { .image-content-grid { grid-template-columns: 1fr; } .image-content-grid.image-right .grid-image { order: -1; } }
+        @media (max-width: 992px) { 
+            .image-content-grid { grid-template-columns: 1fr; } 
+            .image-content-grid.image-right .grid-image { order: -1; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid .footer-col:first-child { grid-column: 1 / -1; }
+        }
         
         @media (max-width: 768px) { 
             section { padding: 50px 0; }
@@ -170,6 +165,9 @@
             .benefit-card { padding: 20px 15px; }
             .benefit-card h3 { font-size: 1.1em; }
             .tools-grid { grid-template-columns: repeat(3, 1fr); gap: 15px;}
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; text-align: center;}
+            .footer-logo img { margin-left: auto; margin-right: auto; }
+            .social-icons { justify-content: center; }
         }
 
         @media (max-width: 480px) {
@@ -182,16 +180,107 @@
     </style>
 </head>
 <body>
-    <nav class="navbar"> <div class="nav-container"> <a href="#" class="nav-logo"> <img src="https://gpems.net/logo-icon.png" alt="GPEMS Logo"> <span>EMS SOLUTION</span> </a> <ul class="nav-links"> <li><a href="#objectives-benefits">Lợi ích</a></li> <li><a href="#tools">Công cụ</a></li> <li><a href="#curriculum">Nội dung</a></li> <li><a href="#instructors">Giảng viên</a></li> <li><a href="#faq">FAQ</a></li> </ul> <button class="btn nav-cta btn-register">Đăng ký ngay</button> </div> </nav>
-    
-    <!-- This button is replaced by the new floating widget container
-    <button class="btn floating-cta btn-register">Đăng Ký</button> -->
+    <nav class="navbar"> 
+        <div class="nav-container"> 
+            <a href="#" class="nav-logo"> 
+                <img src="https://gpems.net/logo-icon.png" alt="GPEMS Logo"> 
+                <span>EMS SOLUTION</span> 
+            </a> 
+            <!-- === UPDATE: CẬP NHẬT MENU === -->
+            <ul class="nav-links"> 
+                <li><a href="#introduction">Giới thiệu</a></li> 
+                <li><a href="#problems">Vấn đề</a></li> 
+                <li><a href="#objectives">Mục tiêu</a></li>
+                <li><a href="#tools">Công cụ</a></li> 
+                <li><a href="#curriculum">Nội dung</a></li> 
+                <li><a href="#instructors">Giảng viên</a></li> 
+                <li><a href="#faq">FAQ</a></li> 
+            </ul> 
+            <button class="btn nav-cta btn-register">Đăng ký ngay</button> 
+        </div> 
+    </nav>
 
-    <header class="hero" id="hero"> <div class="container fade-in"> <span class="course-tag">🎓 KHÓA HỌC ĐỘC QUYỀN</span> <h1>Hệ Thống Quản Lý Tự Động với AI & Nocode</h1> <p>Biến mọi ý tưởng quản lý thành hệ thống thực thi tự động, dùng được ngay – chỉ sau 10 buổi học ứng dụng AI và No-code.</p> <button class="btn btn-register">Tham gia ngay</button> </div> </header>
+    <header class="hero" id="hero"> 
+        <div class="container fade-in"> 
+            <span class="course-tag">🎓 KHÓA HỌC ĐỘC QUYỀN</span> 
+            <h1>Hệ Thống Quản Lý Tự Động với AI & Nocode</h1> 
+            <p>Biến mọi ý tưởng quản lý thành hệ thống thực thi tự động, dùng được ngay – chỉ sau 10 buổi học ứng dụng AI và No-code.</p> 
+            <button class="btn btn-register">Tham gia ngay</button> 
+        </div> 
+    </header>
 
     <main>
-        <section id="audience"> <div class="container"> <h2 class="section-title fade-in">✅ Khóa học này dành cho ai?</h2> <p class="section-subtitle fade-in">Nếu bạn thuộc một trong những nhóm dưới đây, khóa học này được thiết kế dành riêng cho bạn.</p> <div class="audience-grid"> <div class="benefit-card fade-in"> <div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h6M9 11.25h6m-6 4.5h6M6.75 21v-2.25a2.25 2.25 0 0 1 2.25-2.25h6a2.25 2.25 0 0 1 2.25 2.25V21" /></svg></div> <h3>Chủ doanh nghiệp & Startup</h3><p>CEO, Founder muốn tự tay xây dựng hệ thống quản trị hiện đại, linh hoạt theo sự phát triển của công ty.</p> </div> <div class="benefit-card fade-in" style="transition-delay: 0.1s;"> <div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m-7.5-2.962A3.75 3.75 0 0 1 15 12a3.75 3.75 0 0 1 3.75 3.75m-16.5 0a3.75 3.75 0 0 1 3.75-3.75 3.75 3.75 0 0 1 3.75 3.75 3.75 3.75 0 0 1-3.75 3.75 3.75 3.75 0 0 1-3.75-3.75M9 12a3.75 3.75 0 0 1 3.75-3.75A3.75 3.75 0 0 1 16.5 12v2.25" /></svg></div> <h3>Trưởng bộ phận & Quản lý</h3><p>Trưởng phòng Marketing, Kinh doanh, Vận hành, Nhân sự muốn tối ưu hóa quy trình làm việc của đội nhóm.</p> </div> <div class="benefit-card fade-in" style="transition-delay: 0.2s;"> <div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" /></svg></div> <h3>Người muốn tự động hóa</h3><p>Những ai đang mệt mỏi với quản lý thủ công bằng Excel, Zalo và muốn ứng dụng công nghệ mà không giỏi lập trình.</p> </div> </div> </div> </section>
-        <section id="objectives-benefits" style="background-color: var(--light-bg-color);"><div class="container"><div class="image-content-grid"><div class="grid-image fade-in"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Dashboard phân tích dữ liệu" loading="lazy"></div><div class="grid-content fade-in" style="transition-delay: 0.1s;"><div class="feature-list"><h3>🎯 Mục tiêu cốt lõi</h3><ul><li>Tạo và vận hành hệ thống quản trị doanh nghiệp số: CRM, Giao việc, Tài liệu, Bán hàng, Thu chi.</li><li>Tự động hóa các quy trình thủ công bằng AI, Web App, Tự động hóa nền tảng.</li><li>Trực quan hóa dữ liệu quản trị qua Dashboard thông minh, ra quyết định dựa trên dữ liệu.</li><li>Nắm vững tư duy hệ thống, tự tin xây dựng mọi ứng dụng quản lý mà không cần lập trình.</li></ul></div></div></div></div></section>
+        <!-- === NEW SECTION: GIỚI THIỆU === -->
+        <section id="introduction">
+            <div class="container">
+                <div class="image-content-grid">
+                    <div class="grid-content fade-in">
+                        <h2 class="section-title" style="text-align: left; font-size: 2.2em;">Phá Vỡ Rào Cản Công Nghệ</h2>
+                        <p class="section-subtitle" style="text-align: left; margin: 0 0 20px 0;">Khóa học này không chỉ dạy bạn công cụ. Chúng tôi trao cho bạn quyền năng để tự mình kiến tạo những giải pháp công nghệ, biến ý tưởng thành hiện thực mà không cần viết một dòng code nào.</p>
+                        <p>Với phương pháp học thực chiến, bạn sẽ xây dựng một hệ thống quản lý hoàn chỉnh ngay trong quá trình học, giải quyết chính những vấn đề mà doanh nghiệp bạn đang đối mặt hàng ngày.</p>
+                    </div>
+                    <div class="grid-image fade-in" style="transition-delay: 0.1s;">
+                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1974&auto=format&fit=crop" alt="Nhóm làm việc trên máy tính" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === NEW SECTION: VẤN ĐỀ === -->
+        <section id="problems" style="background-color: var(--light-bg-color);">
+            <div class="container">
+                <h2 class="section-title fade-in">Bạn có đang "mắc kẹt" trong những vấn đề này?</h2>
+                <p class="section-subtitle fade-in">Nếu câu trả lời là "CÓ" cho bất kỳ điều nào dưới đây, bạn đã tìm đúng nơi.</p>
+                <div class="audience-grid">
+                    <div class="benefit-card fade-in">
+                        <div class="icon-wrapper" style="background: linear-gradient(145deg, #f44336, #ff7961); box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.092 1.21-.138 2.43-.138 3.662v1.5a4.5 4.5 0 0 0 4.5 4.5h3.879a1.5 1.5 0 0 1 1.06.44l2.122 2.12a1.5 1.5 0 0 0 2.12 0l2.122-2.12a1.5 1.5 0 0 1 1.06-.44h3.879a4.5 4.5 0 0 0 4.5-4.5v-1.5Z" /></svg></div>
+                        <h3>Dữ liệu phân mảnh</h3><p>Thông tin khách hàng, công việc, tài chính nằm rải rác trên Excel, Zalo, sổ sách... gây khó khăn trong việc tìm kiếm và tổng hợp.</p>
+                    </div>
+                    <div class="benefit-card fade-in" style="transition-delay: 0.1s;">
+                        <div class="icon-wrapper" style="background: linear-gradient(145deg, #f44336, #ff7961); box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
+                        <h3>Quy trình thủ công</h3><p>Mất nhiều thời gian cho các công việc lặp đi lặp lại như báo cáo, nhắc việc, gửi email, tạo báo giá... dẫn đến trễ nải và sai sót.</p>
+                    </div>
+                    <div class="benefit-card fade-in" style="transition-delay: 0.2s;">
+                        <div class="icon-wrapper" style="background: linear-gradient(145deg, #f44336, #ff7961); box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A11.953 11.953 0 0 1 12 13.5c-2.998 0-5.74-1.1-7.843-2.918" /></svg></div>
+                        <h3>Chi phí & Rào cản</h3><p>Phần mềm đóng gói thì cứng nhắc, không phù hợp. Thuê đội code riêng thì tốn kém, mất thời gian và khó thay đổi linh hoạt.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="audience"> 
+            <div class="container"> 
+                <h2 class="section-title fade-in">✅ Khóa học này dành cho ai?</h2> 
+                <p class="section-subtitle fade-in">Nếu bạn thuộc một trong những nhóm dưới đây, khóa học này được thiết kế dành riêng cho bạn.</p> 
+                <div class="audience-grid"> 
+                    <div class="benefit-card fade-in"> <div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h6M9 11.25h6m-6 4.5h6M6.75 21v-2.25a2.25 2.25 0 0 1 2.25-2.25h6a2.25 2.25 0 0 1 2.25 2.25V21" /></svg></div> <h3>Chủ doanh nghiệp & Startup</h3><p>CEO, Founder muốn tự tay xây dựng hệ thống quản trị hiện đại, linh hoạt theo sự phát triển của công ty.</p> </div> 
+                    <div class="benefit-card fade-in" style="transition-delay: 0.1s;"> <div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m-7.5-2.962A3.75 3.75 0 0 1 15 12a3.75 3.75 0 0 1 3.75 3.75m-16.5 0a3.75 3.75 0 0 1 3.75-3.75 3.75 3.75 0 0 1 3.75 3.75 3.75 3.75 0 0 1-3.75 3.75 3.75 3.75 0 0 1-3.75-3.75M9 12a3.75 3.75 0 0 1 3.75-3.75A3.75 3.75 0 0 1 16.5 12v2.25" /></svg></div> <h3>Trưởng bộ phận & Quản lý</h3><p>Trưởng phòng Marketing, Kinh doanh, Vận hành, Nhân sự muốn tối ưu hóa quy trình làm việc của đội nhóm.</p> </div> 
+                    <div class="benefit-card fade-in" style="transition-delay: 0.2s;"> <div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" /></svg></div> <h3>Người muốn tự động hóa</h3><p>Những ai đang mệt mỏi với quản lý thủ công bằng Excel, Zalo và muốn ứng dụng công nghệ mà không giỏi lập trình.</p> </div> 
+                </div> 
+            </div> 
+        </section>
+        
+        <!-- === UPDATE: THAY ĐỔI ID VÀ TIÊU ĐỀ === -->
+        <section id="objectives" style="background-color: #fff;">
+            <div class="container">
+                <div class="image-content-grid">
+                    <div class="grid-image fade-in">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Dashboard phân tích dữ liệu" loading="lazy">
+                    </div>
+                    <div class="grid-content fade-in" style="transition-delay: 0.1s;">
+                        <div class="feature-list">
+                            <h3>🎯 Sau khóa học, bạn sẽ tự tin làm chủ:</h3>
+                            <ul>
+                                <li>Tạo và vận hành hệ thống quản trị doanh nghiệp số: CRM, Giao việc, Tài liệu, Bán hàng, Thu chi.</li>
+                                <li>Tự động hóa các quy trình thủ công bằng AI, Web App, Tự động hóa nền tảng.</li>
+                                <li>Trực quan hóa dữ liệu quản trị qua Dashboard thông minh, ra quyết định dựa trên dữ liệu.</li>
+                                <li>Nắm vững tư duy hệ thống, tự tin xây dựng mọi ứng dụng quản lý mà không cần lập trình.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         
         <section id="tools">
             <div class="container">
@@ -213,28 +302,25 @@
                 <p class="section-subtitle fade-in">Mỗi buổi học là một "chiến thắng", giải quyết một vấn đề thực tế trong doanh nghiệp của bạn.</p>
                 <div class="curriculum-accordion fade-in">
                     <h3 class="part-title">Phần 1: Nền Tảng Vững Chắc & Vận Hành Cốt Lõi</h3>
-                    <!-- Chương 1 -->
+                    <!-- Chapters 1-4 -->
                     <div class="chapter-item"><button class="chapter-header"><span class="chapter-title"><span class="icon">+</span><h4>Chương 1: Phép màu No-Code - App đầu tiên trong 30 phút</h4></span></button><div class="lesson-list">
                         <div class="lesson-item"><span class="lesson-title"><span class="icon">►</span><p>1.1: Demo & Thử thách "App trong 15 phút"</p></span><span class="lesson-meta"><a href="#" class="btn-preview">Xem trước</a><span class="lesson-duration">10 phút</span></span></div>
                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>1.2: Giải mã "Phép màu" - AppSheet & Sheets</p></span><span class="lesson-meta"><span class="lesson-duration">15 phút</span></span></div>
                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>1.3: Xây dựng "Bộ não" Doanh nghiệp trên Sheets</p></span><span class="lesson-meta"><span class="lesson-duration">10 phút</span></span></div>
                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>1.4: Nền tảng cốt lõi - Liên kết dữ liệu</p></span><span class="lesson-meta"><span class="lesson-duration">15 phút</span></span></div>
                     </div></div>
-                    <!-- Chương 2 -->
                     <div class="chapter-item"><button class="chapter-header"><span class="chapter-title"><span class="icon">+</span><h4>Chương 2: Chấm dứt "Quên việc, trễ deadline"</h4></span></button><div class="lesson-list">
                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>2.1: Mục tiêu & Demo hệ thống giao việc tự động</p></span><span class="lesson-meta"><span class="lesson-duration">10 phút</span></span></div>
                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>2.2: Bước 1: Thiết kế Database công việc</p></span><span class="lesson-meta"><span class="lesson-duration">15 phút</span></span></div>
                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>2.3: Bước 2: Dựng Kanban Board & Calendar</p></span><span class="lesson-meta"><span class="lesson-duration">20 phút</span></span></div>
                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>2.4: "Đòn bẩy": Tự động nhắc việc sắp hết hạn</p></span><span class="lesson-meta"><span class="lesson-duration">15 phút</span></span></div>
                     </div></div>
-                    <!-- Chương 3 -->
                      <div class="chapter-item"><button class="chapter-header"><span class="chapter-title"><span class="icon">+</span><h4>Chương 3: Nhìn thấu Dòng tiền Real-time</h4></span></button><div class="lesson-list">
                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>3.1: Mục tiêu & Demo sổ quỹ điện tử</p></span><span class="lesson-meta"><span class="lesson-duration">10 phút</span></span></div>
                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>3.2: Bước 1: Thiết kế Database Thu-Chi</p></span><span class="lesson-meta"><span class="lesson-duration">15 phút</span></span></div>
                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>3.3: Bước 2: Form Thu-Chi & Tự động tính số dư</p></span><span class="lesson-meta"><span class="lesson-duration">20 phút</span></span></div>
                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>3.4: "Đòn bẩy": Biểu đồ dòng tiền cho lãnh đạo</p></span><span class="lesson-meta"><span class="lesson-duration">15 phút</span></span></div>
                     </div></div>
-                    <!-- Chương 4 -->
                     <div class="chapter-item"><button class="chapter-header"><span class="chapter-title"><span class="icon">+</span><h4>Chương 4: Số hóa quy trình Phê duyệt</h4></span></button><div class="lesson-list">
                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>4.1: Mục tiêu & Demo hệ thống phê duyệt online</p></span><span class="lesson-meta"><span class="lesson-duration">10 phút</span></span></div>
                         <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>4.2: Bước 1: Thiết kế luồng duyệt & Database</p></span><span class="lesson-meta"><span class="lesson-duration">15 phút</span></span></div>
@@ -243,21 +329,19 @@
                     </div></div>
 
                     <h3 class="part-title">Phần 2: Tăng Trưởng Kinh Doanh & Phân Tích Dữ Liệu</h3>
-                    <!-- Chương 5 -->
+                    <!-- Chapters 5-7 -->
                     <div class="chapter-item"><button class="chapter-header"><span class="chapter-title"><span class="icon">+</span><h4>Chương 5: Chinh phục Khách hàng (CRM)</h4></span></button><div class="lesson-list">
                          <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>5.1: Mục tiêu & Demo hệ thống CRM 360 độ</p></span><span class="lesson-meta"><span class="lesson-duration">10 phút</span></span></div>
                          <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>5.2: Bước 1: Thiết kế Database khách hàng</p></span><span class="lesson-meta"><span class="lesson-duration">15 phút</span></span></div>
                          <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>5.3: Bước 2: Form thu lead & Ghi nhật ký tương tác</p></span><span class="lesson-meta"><span class="lesson-duration">20 phút</span></span></div>
                          <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>5.4: "Đòn bẩy": Tự động gửi email chúc mừng sinh nhật</p></span><span class="lesson-meta"><span class="lesson-duration">15 phút</span></span></div>
                     </div></div>
-                    <!-- Chương 6 -->
                     <div class="chapter-item"><button class="chapter-header"><span class="chapter-title"><span class="icon">+</span><h4>Chương 6: Báo giá chuyên nghiệp trong 1 Click</h4></span></button><div class="lesson-list">
                          <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>6.1: Mục tiêu & Demo quy trình báo giá tự động</p></span><span class="lesson-meta"><span class="lesson-duration">10 phút</span></span></div>
                          <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>6.2: Bước 1: Thiết kế Database sản phẩm & đơn hàng</p></span><span class="lesson-meta"><span class="lesson-duration">15 phút</span></span></div>
                          <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>6.3: Bước 2: Dựng tính năng Form báo giá động</p></span><span class="lesson-meta"><span class="lesson-duration">15 phút</span></span></div>
                          <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>6.4: "A-HA Moment": Tự động xuất PDF & gửi Email</p></span><span class="lesson-meta"><span class="lesson-duration">20 phút</span></span></div>
                     </div></div>
-                    <!-- Chương 7 -->
                      <div class="chapter-item"><button class="chapter-header"><span class="chapter-title"><span class="icon">+</span><h4>Chương 7: Dashboard của CEO (với Looker Studio)</h4></span></button><div class="lesson-list">
                          <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>7.1: Mục tiêu & Demo Dashboard cho lãnh đạo</p></span><span class="lesson-meta"><span class="lesson-duration">10 phút</span></span></div>
                          <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>7.2: Bước 1: Xây dựng Dashboard Vận hành & Doanh thu</p></span><span class="lesson-meta"><span class="lesson-duration">20 phút</span></span></div>
@@ -266,20 +350,18 @@
                     </div></div>
 
                     <h3 class="part-title">Phần 3: Tự Động Hóa Thông Minh & Triển Khai Thực Tế</h3>
-                    <!-- Chương 8 -->
+                    <!-- Chapters 8-10 -->
                     <div class="chapter-item"><button class="chapter-header"><span class="chapter-title"><span class="icon">+</span><h4>Chương 8: "Trợ lý ảo" AI cho nhà Quản lý</h4></span></button><div class="lesson-list">
                          <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>8.1: Mục tiêu & Demo sức mạnh của Google AI</p></span><span class="lesson-meta"><span class="lesson-duration">10 phút</span></span></div>
                          <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>8.2: Bước 1: Tích hợp AI Task trên AppSheet</p></span><span class="lesson-meta"><span class="lesson-duration">15 phút</span></span></div>
                          <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>8.3: Bước 2: AI tự động phân loại & Tóm tắt email</p></span><span class="lesson-meta"><span class="lesson-duration">20 phút</span></span></div>
                          <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>8.4: Mở rộng: Sử dụng Google AI Studio & App Script</p></span><span class="lesson-meta"><span class="lesson-duration">15 phút</span></span></div>
                     </div></div>
-                    <!-- Chương 9 -->
                     <div class="chapter-item"><button class="chapter-header"><span class="chapter-title"><span class="icon">+</span><h4>Chương 9: "Nhạc trưởng" Tự động hóa (Smax & n8n)</h4></span></button><div class="lesson-list">
                          <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>9.1: Case Study: Tự động báo cáo cuối ngày qua Zalo (Smax)</p></span><span class="lesson-meta"><span class="lesson-duration">20 phút</span></span></div>
                          <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>9.2: Case Study: Tạo Trợ lý AI trên Telegram (n8n)</p></span><span class="lesson-meta"><span class="lesson-duration">25 phút</span></span></div>
                          <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>9.3: "Đỉnh cao": Flow tự động tạo & Gửi Content Marketing</p></span><span class="lesson-meta"><span class="lesson-duration">15 phút</span></span></div>
                     </div></div>
-                    <!-- Chương 10 -->
                     <div class="chapter-item"><button class="chapter-header"><span class="chapter-title"><span class="icon">+</span><h4>Chương 10: Lễ Tốt nghiệp - Triển khai hệ thống</h4></span></button><div class="lesson-list">
                          <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>10.1: Phân quyền & Bảo mật chi tiết</p></span><span class="lesson-meta"><span class="lesson-duration">15 phút</span></span></div>
                          <div class="lesson-item"><span class="lesson-title"><span class="icon">🔒</span><p>10.2: "Make Up" cho App - Tùy chỉnh thương hiệu</p></span><span class="lesson-meta"><span class="lesson-duration">15 phút</span></span></div>
@@ -289,14 +371,13 @@
             </div>
         </section>
 
-        <section id="format-benefits" style="background-color: #fff"><div class="container"><div class="image-content-grid image-right"><div class="grid-content fade-in"><div class="feature-list"><h3>💻 Hình thức học</h3><ul><li>Online qua Google Meet, tương tác trực tiếp.</li><li>10 buổi × 2 giờ học (Tổng thời lượng: 20h).</li><li>Có video ghi lại từng buổi học để xem lại.</li><li>Hỗ trợ sau khóa học trọn đời.</li></ul></div><div class="feature-list" style="margin-top: 30px;"><h3>🎁Bạn nhận được gì?</h3><ul><li>Toàn bộ App mẫu được xây dựng thực tế.</li><li>Bộ tài liệu quy trình số hóa doanh nghiệp.</li><li>Tham gia nhóm kín hỗ trợ 24/7.</li><li>Bảo hành trọn đời hệ thống đã học.</li></ul></div></div><div class="grid-image fade-in" style="transition-delay: 0.1s;"><img src="https://scontent.fsgn10-2.fna.fbcdn.net/v/t39.30808-6/480334339_962207342717083_1954899218297351799_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=iWLu0OPOdcUQ7kNvwGo-Dz8&_nc_oc=Adlyp0zdDiPc2ToGQ6l0ZKbtDZUceaMjiSg8ErXcP40eL8ISZisjaNFWn14WfIpgm15ZPziahiGhUTCWRHi3DCBZ&_nc_zt=23&_nc_ht=scontent.fsgn10-2.fna&_nc_gid=jkT4Om60N7fmvJjFZ23YSw&oh=00_AfR928pomq38zk2hU_nMHpEm74TetsHAY-MTkhrojghMMA&oe=68819C5B" alt="Học online qua video call" loading="lazy"></div></div></div></section>
+        <section id="format-benefits" style="background-color: #fff;"><div class="container"><div class="image-content-grid image-right"><div class="grid-content fade-in"><div class="feature-list"><h3>💻 Hình thức học</h3><ul><li>Online qua Google Meet, tương tác trực tiếp.</li><li>10 buổi × 2 giờ học (Tổng thời lượng: 20h).</li><li>Có video ghi lại từng buổi học để xem lại.</li><li>Hỗ trợ sau khóa học trọn đời.</li></ul></div><div class="feature-list" style="margin-top: 30px;"><h3>🎁Bạn nhận được gì?</h3><ul><li>Toàn bộ App mẫu được xây dựng thực tế.</li><li>Bộ tài liệu quy trình số hóa doanh nghiệp.</li><li>Tham gia nhóm kín hỗ trợ 24/7.</li><li>Bảo hành trọn đời hệ thống đã học.</li></ul></div></div><div class="grid-image fade-in" style="transition-delay: 0.1s;"><img src="https://scontent.fsgn10-2.fna.fbcdn.net/v/t39.30808-6/480334339_962207342717083_1954899218297351799_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=iWLu0OPOdcUQ7kNvwGo-Dz8&_nc_oc=Adlyp0zdDiPc2ToGQ6l0ZKbtDZUceaMjiSg8ErXcP40eL8ISZisjaNFWn14WfIpgm15ZPziahiGhUTCWRHi3DCBZ&_nc_zt=23&_nc_ht=scontent.fsgn10-2.fna&_nc_gid=jkT4Om60N7fmvJjFZ23YSw&oh=00_AfR928pomq38zk2hU_nMHpEm74TetsHAY-MTkhrojghMMA&oe=68819C5B" alt="Học online qua video call" loading="lazy"></div></div></div></section>
         <section id="instructors"> <div class="container"> <h2 class="section-title fade-in">👨‍🏫 Giảng viên chuyên gia</h2> <p class="section-subtitle fade-in">Được dẫn dắt bởi các chuyên gia với kinh nghiệm thực chiến triển khai thành công cho hàng trăm doanh nghiệp.</p> <div class="instructors-grid"> <div class="instructor-card fade-in"> <img src="https://admin.gpems.net/storage/uploads/courses/lecturers/dwDwZCThmWPgEM0kDi8XnYWkuLke9k-metaNzI0MjU1MTcwMTY2NzAzMTA4MC5wbmc%3D-.png" alt="Chân dung giảng viên Nguyễn Tấn Hiền" loading="lazy"> <h3>Nguyễn Tấn Hiền</h3> <p class="title">Founder & CEO EMS SOLUTION</p> <p>Chuyên gia triển khai hệ thống quản trị cho hơn 200+ doanh nghiệp vừa và nhỏ.</p> </div> <div class="instructor-card fade-in" style="transition-delay: 0.1s;"> <img src="https://admin.gpems.net/storage/uploads/courses/lecturers/mlXRjIPyPsdcucphnW5fNbCrq9IRoH-metaMTkwMjE3NjgyNzE2NzE1MzM0MzAuanBn-.jpg" alt="Chân dung giảng viên Nguyễn Văn Hòa" loading="lazy"> <h3>Nguyễn Văn Hòa</h3> <p class="title">Co-Founder & CEO EMSSOLUTION</p> <p>Chuyên gia tư vấn số hóa và ứng dụng AI thực chiến trong quản lý.</p> </div> </div> </div> </section>
         <section id="faq"> <div class="container"> <h2 class="section-title fade-in">❓ Câu hỏi thường gặp</h2> <div class="faq-accordion fade-in"> <div class="faq-item"> <button class="faq-question">Tôi không biết gì về công nghệ, có học được không?</button> <div class="faq-answer"><p>Hoàn toàn được! Khóa học được thiết kế đặc biệt cho người không chuyên, không cần biết lập trình. Bạn sẽ được hướng dẫn từng bước, từ tư duy đến thực hành click-chuột để xây dựng hệ thống.</p></div> </div> <div class="faq-item"> <button class="faq-question">Khóa học sử dụng những công cụ gì?</button> <div class="faq-answer"><p>Chúng ta sẽ sử dụng nền tảng No-code Google AppSheet làm trọng tâm, kết hợp với Google Sheets, Looker Studio để trực quan hóa dữ liệu, và các công cụ tự động hóa như Smax, n8n, và Google AI để tạo nên một hệ thống thông minh, toàn diện.</p></div> </div> <div class="faq-item"> <button class="faq-question">Nếu tôi bận và bỏ lỡ một buổi học thì sao?</button> <div class="faq-answer"><p>Đừng lo lắng. Tất cả các buổi học đều được ghi hình lại. Bạn sẽ có quyền truy cập vào video bài giảng trọn đời để có thể xem lại bất cứ lúc nào.</p></div> </div> <div class="faq-item"> <button class="faq-question">Hệ thống xây dựng xong có thể mở rộng được không?</button> <div class="faq-answer"><p>Chắc chắn có. Nền tảng No-code rất linh hoạt. Sau khóa học, bạn hoàn toàn có đủ kiến thức để tự mình chỉnh sửa, nâng cấp và mở rộng hệ thống khi doanh nghiệp phát triển.</p></div> </div> <div class="faq-item"> <button class="faq-question">"Bảo hành trọn đời" nghĩa là như thế nào?</button> <div class="faq-answer"><p>Nghĩa là chúng tôi cam kết hỗ trợ bạn sửa lỗi và giải đáp các vấn đề liên quan đến những kiến thức và hệ thống đã được học, đảm bảo ứng dụng của bạn luôn hoạt động ổn định.</p></div> </div> </div> </div> </section>
         <section id="pricing"> <div class="container fade-in"> <div class="pricing-box"> <h3>💸 Đầu tư một lần, sở hữu trọn đời</h3> <div class="price">4.500.000 VNĐ</div> <p class="note">(Giá đã bao gồm toàn bộ tài liệu, app mẫu, hỗ trợ & bảo hành)</p> <button class="btn btn-register">Đăng ký và nhận ưu đãi</button> </div> </div> </section>
         <section id="final-cta" style="padding-top: 0;"> <div class="container"> <div class="final-quote fade-in"> ✨ Học xong bạn không chỉ “biết làm”, mà còn có trong tay một hệ thống thật để đưa vào vận hành ngay trong doanh nghiệp của mình. </div> </div> </section>
     </main>
     
-    <!-- === NEW FOOTER STARTS HERE === -->
     <footer id="footer-contact"> 
         <div class="container"> 
             <div class="footer-grid"> 
@@ -328,12 +409,10 @@
             </div> 
         </div> 
     </footer>
-    <!-- === NEW FOOTER ENDS HERE === -->
 
     <div class="modal-overlay" id="registrationModal"> <div class="modal-content"> <button class="modal-close" id="registrationModalClose">×</button> <div id="registration-form-container"> <h3>Thông tin đăng ký</h3> <form id="registrationForm"> <div class="form-group"> <label for="fullName">Họ và tên (để in chứng chỉ)</label> <input type="text" id="fullName" name="fullName" required> </div> <div class="form-group"> <label for="email">Email (để kích hoạt khóa học)</label> <input type="email" id="email" name="email" required> </div> <div class="form-group"> <label for="phone">Số điện thoại (Zalo hỗ trợ)</label> <input type="tel" id="phone" name="phone" required> </div> <div class="form-group"> <label for="discountCode">Mã giảm giá (nếu có)</label> <input type="text" id="discountCode" name="discountCode" placeholder="Ví dụ: EMS10"> </div> <p id="form-error"></p> <button type="submit" class="btn" style="width: 100%;">Xác nhận và thanh toán</button> </form> </div> <div id="qr-code-view" style="display: none;"> <h3>Quét mã để thanh toán</h3> <div id="loader" class="loader"></div> <img id="qrImage" src="" alt="VietQR Code" style="display: none;"> <div class="payment-details"> <p>Ngân hàng: <strong>Kien Long Bank (KLB)</strong></p> <p>Chủ tài khoản: <strong>NGUYEN TAN HIEN</strong></p> <p>Số tiền cần thanh toán:</p> <p class="amount" id="paymentAmount"></p> <p>Nội dung chuyển khoản:</p> <p class="memo" id="paymentMemo"></p> </div> </div> </div> </div>
     <div class="modal-overlay" id="videoModal"> <div class="modal-content"> <button class="modal-close" id="videoModalClose">×</button> <div class="video-container"> <iframe id="videoPlayer" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> </div> </div> </div>
 
-    <!-- === NEW FLOATING WIDGETS START HERE === -->
     <div class="floating-widget-container">
         <a href="tel:0903375265" class="floating-btn phone-btn" title="Gọi Hotline">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -349,7 +428,6 @@
             </svg>
         </a>
     </div>
-    <!-- === NEW FLOATING WIDGETS END HERE === -->
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -442,7 +520,6 @@
             }, observerOptions);
             sections.forEach((section) => observer.observe(section));
 
-            // === NEW SCRIPT FOR BACK TO TOP BUTTON ===
             const backToTopBtn = document.getElementById('back-to-top-btn');
             if (backToTopBtn) {
                 window.addEventListener('scroll', () => {
